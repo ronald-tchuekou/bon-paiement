@@ -1,0 +1,131 @@
+/*!
+ * Copyright (c) 25/07/2021 10:21
+ * @author Ronald Tchuekou
+ * @email ronaldtchuekou@gmail.com
+ */
+
+.btn {
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    padding: 8px 17px;
+    margin: 5px;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 600;
+    transition: 0.3s;
+    background-color: $default_text_color;
+    color: $white_color;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 35px;
+
+    i {
+        font-size: inherit;
+        color: inherit;
+    }
+
+    &.contained-primary {
+        background: radial-gradient(
+            circle,
+            $primary_color_50 0%,
+            $primary_color 100%
+        );
+        color: $white_color;
+    }
+
+    &.contained-danger {
+        background: radial-gradient(
+            circle,
+            $danger_color_50 0%,
+            $danger_color 100%
+        );
+        color: $white_color;
+    }
+
+    &.contained-success {
+        background: radial-gradient(
+            circle,
+            $success_color_50 0%,
+            $success_color 100%
+        );
+        color: $white_color;
+    }
+
+    &.contained-warning {
+        background: radial-gradient(
+            circle,
+            $warning_color_50 0%,
+            $warning_color 100%
+        );
+        color: $white_color;
+    }
+
+    &.contained-white {
+        background: radial-gradient(
+            circle,
+            $white_color_50 0%,
+            $white_color 100%
+        );
+        color: $default_text_color_dark;
+    }
+
+    &:hover {
+        box-shadow: 0px 0px 4px $default_text_color_dark;
+        &.contained-primary {
+            box-shadow: 0px 0px 4px $primary_color;
+        }
+        &.contained-danger {
+            box-shadow: 0px 0px 4px $danger_color;
+        }
+        &.contained-warning {
+            box-shadow: 0px 0px 4px $warning_color;
+        }
+        &.contained-success {
+            box-shadow: 0px 0px 4px $success_color;
+        }
+        &.contained-white {
+            box-shadow: 0px 0px 4px $default_text_color;
+        }
+        &:active {
+            box-shadow: none;
+        }
+        &:disabled {
+            box-shadow: unset;
+        }
+    }
+
+    &:disabled {
+        box-shadow: unset;
+        background-color: $bg_btn_disabled !important;
+        color: $default_text_color !important;
+        cursor: not-allowed !important;
+    }
+
+    &.icon-btn {
+        border-radius: 50%;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        min-height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &.mg {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            min-height: 40px;
+        }
+        &.lg {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            min-height: 50px;
+        }
+    }
+}

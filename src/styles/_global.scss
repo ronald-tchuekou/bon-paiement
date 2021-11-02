@@ -1,0 +1,45 @@
+/****************************************\
+    Pour la gestion des styles globaux.
+\****************************************/
+.text-primary {
+    color: $primary_color;
+}
+.text-primary_50 {
+    color: $primary_color_50;
+}
+.text-danger {
+    color: $danger_color;
+}
+.text-danger_50 {
+    color: $danger_color_50;
+}
+.text-success {
+    color: $success_color;
+}
+.text-success_50 {
+    color: $success_color_50;
+}
+.text-warning {
+    color: $warning_color;
+}
+.text-warning_50 {
+    color: $warning_color_50;
+}
+.text-placeholder {
+    color: $placeholder_color;
+}
+.text-title {
+    color: $title_color;
+}
+.text-default_dark {
+    color: $default_text_color;
+}
+.text-default {
+    color: $default_text_color;
+}
+.text-white {
+    color: $white_color;
+}
+.text-white_50 {
+    color: $white_color_50;
+}
