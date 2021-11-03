@@ -29,50 +29,31 @@
     }
 
     &.contained-primary {
-        background: radial-gradient(
-            circle,
-            $primary_color_50 0%,
-            $primary_color 100%
-        );
+        background: radial-gradient(circle, $primary_color_50 0%, $primary_color 100%);
         color: $white_color;
     }
 
     &.contained-danger {
-        background: radial-gradient(
-            circle,
-            $danger_color_50 0%,
-            $danger_color 100%
-        );
+        background: radial-gradient(circle, $danger_color_50 0%, $danger_color 100%);
         color: $white_color;
     }
 
     &.contained-success {
-        background: radial-gradient(
-            circle,
-            $success_color_50 0%,
-            $success_color 100%
-        );
+        background: radial-gradient(circle, $success_color_50 0%, $success_color 100%);
         color: $white_color;
     }
 
     &.contained-warning {
-        background: radial-gradient(
-            circle,
-            $warning_color_50 0%,
-            $warning_color 100%
-        );
+        background: radial-gradient(circle, $warning_color_50 0%, $warning_color 100%);
         color: $white_color;
     }
 
     &.contained-white {
-        background: radial-gradient(
-            circle,
-            $white_color_50 0%,
-            $white_color 100%
-        );
+        background: radial-gradient(circle, $white_color_50 0%, $white_color 100%);
         color: $default_text_color_dark;
     }
 
+    &:focus,
     &:hover {
         box-shadow: 0px 0px 4px $default_text_color_dark;
         &.contained-primary {

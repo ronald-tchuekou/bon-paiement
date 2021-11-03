@@ -3,4 +3,80 @@ export const Lang = {
         fr: 'Bon Paiement',
         en: 'Payment voucher',
     },
+    username: {
+        fr: "Nom d'utilisateur",
+        en: 'Username',
+    },
+    password: {
+        fr: 'Mot de passe',
+        en: 'Password',
+    },
+    confirm_password: {
+        fr: 'Confirmation',
+        en: 'Confirmation',
+    },
+    password_recovery: {
+        fr: 'Récupération de mot de passe',
+        en: 'Password recovery',
+    },
+    new_password: {
+        fr: 'Entrer votre nouveau mot de passe dans ce formulaire',
+        en: 'Enter your new password on this form',
+    },
+    reset_password: {
+        fr: 'Réinitialisation du mot de passe',
+        en: 'Reset password',
+    },
+    forgot_your_pass: {
+        en: 'Forgot your password ?',
+        fr: 'Vous avez oublié votre mot de passe ?',
+    },
+    forgot_password: {
+        fr: 'Mot de passe oublié',
+        en: 'Password forgot',
+    },
+    no_pb_enter_tou: {
+        fr: 'Pas de souci, entrer votre adresse e-mail de récupération dans ce formulaire pour réinitialiser votre mot de passe.',
+        en: 'No problem, enter your recovery email address in this form to reset your password.',
+    },
+    connect: {
+        fr: 'Connexion',
+        en: 'Connect',
+    },
+    copyright: {
+        fr: 'Copyright - 2021, développé par dc-corp, tous les droits réservés.',
+        en: 'Copyright - 2021, powered by dc-corp, all rights reserved.',
+    },
+    reset_mail: {
+        fr: 'E-mail de récupération....',
+        en: 'Recovery email ....',
+    },
+    validate: {
+        fr: 'Valider',
+        en: 'Validate',
+    },
+    set_username: {
+        fr: "Entrer votre nom d'utilisateur !",
+        en: 'Enter your username!',
+    },
+    set_password: {
+        fr: 'Entrer votre mot de passe !',
+        en: 'Enter your password!',
+    },
+    set_reset_mail: {
+        fr: 'Entrer le mail de récupération !',
+        en: 'Enter reset mail!',
+    },
+    set_new_password: {
+        fr: 'Entrer votre nouveau mot de passe !',
+        en: 'Enter your new password!',
+    },
+    set_confirm_password: {
+        fr: 'Entrer le mot de passe de confirmation !',
+        en: 'Enter your confirmation password!',
+    },
+    wrong_confirm_password: {
+        fr: 'Confirmation incorrect !',
+        en: 'Wrong confirmation password!',
+    },
 };

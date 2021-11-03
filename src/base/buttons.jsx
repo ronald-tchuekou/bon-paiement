@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
  * @returns React.JSXElement
  */
 export const Button = (props) => {
-    const { color, children } = props;
+    const { color, children, className } = props;
     return (
-        <button {...props} className={`btn contained-${color}`}>
+        <button {...props} className={`btn contained-${color} ${className}`}>
             {children}
         </button>
     );
@@ -18,7 +18,7 @@ Button.defaultProps = {
     color: '',
 };
 Button.propTypes = {
-    color: PropTypes.oneOf('primary', 'danger', 'warning', 'success', 'white'),
+    color: PropTypes.oneOf(['primary', 'danger', 'warning', 'success', 'white']),
 };
 
 /**
@@ -29,10 +29,7 @@ Button.propTypes = {
 export const IconButton = (props) => {
     const { color, children, size } = props;
     return (
-        <button
-            {...props}
-            className={`btn icon-btn contained-${color} ${size}`}
-        >
+        <button {...props} className={`btn icon-btn contained-${color} ${size}`}>
             {children}
         </button>
     );
@@ -43,5 +40,5 @@ IconButton.defaultProps = {
 };
 IconButton.propTypes = {
     ...Button.propTypes,
-    size: PropTypes.oneOf('mg', 'lg'),
+    size: PropTypes.oneOf(['mg', 'lg']),
 };
