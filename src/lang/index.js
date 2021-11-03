@@ -79,4 +79,40 @@ export const Lang = {
         fr: 'Confirmation incorrect !',
         en: 'Wrong confirmation password!',
     },
+    home: {
+        fr: 'Acceuil',
+        en: 'Home',
+    },
+    dashboard: {
+        fr: 'Tableau de bord',
+        en: 'Dashboard',
+    },
+    dotation_mvt: {
+        fr: 'Mouvements de dotation',
+        en: 'Voucher movements',
+    },
+    manager: {
+        fr: 'Gestionnaire',
+        en: 'Manager',
+    },
+    caisse: {
+        fr: 'Caisse',
+        en: 'Payment box',
+    },
+    settings: {
+        fr: 'Parametres',
+        en: 'Settings',
+    },
+    logout: {
+        fr: 'Déconnexion',
+        en: 'Logout',
+    },
+    wellcome_to_bon_payment: {
+        fr: 'Bienvenue dans votre application de gestion de bon de paiement !',
+        en: 'Welcome to your payment slip management application!',
+    },
+    see_the_dashboard: {
+        fr: 'Voir de dashboard',
+        en: 'See the dashboard',
+    },
 };

@@ -4,11 +4,13 @@ import { Button } from '../base/buttons';
 import { TextInput } from '../base/input_text';
 import { LangContext } from '../context';
 import { Lang } from '../lang';
+import { useRouter } from 'next/router';
 
 export const Login = (props) => {
     const { showLoader, hideLoader, passForgot } = props;
 
     const { lang } = React.useContext(LangContext);
+    const router = useRouter();
 
     const [username, setUsername] = React.useState({
         value: '',
@@ -45,6 +47,7 @@ export const Login = (props) => {
         showLoader();
         setTimeout(() => {
             hideLoader();
+            router.push('/home');
         }, 2000);
         // TODO
     }

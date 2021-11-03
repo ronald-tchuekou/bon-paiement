@@ -75,7 +75,7 @@ export const ResetMail = (props) => {
                             })
                         }
                     >
-                        <i className="fi fi-rr-envelope-marker"></i>
+                        <i className="fi fi-rr-at"></i>
                     </TextInput>
                     <div className="d-flex content-end">
                         <Button onClick={handleClick} className="my-15" color={'primary'}>

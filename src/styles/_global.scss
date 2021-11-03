@@ -7,46 +7,46 @@
     }
 }
 .text-primary {
-    color: $primary_color;
+    color: $primary_color !important;
 }
 .text-primary_50 {
-    color: $primary_color_50;
+    color: $primary_color_50 !important;
 }
 .text-danger {
-    color: $danger_color;
+    color: $danger_color !important;
 }
 .text-danger_50 {
-    color: $danger_color_50;
+    color: $danger_color_50 !important;
 }
 .text-success {
-    color: $success_color;
+    color: $success_color !important;
 }
 .text-success_50 {
-    color: $success_color_50;
+    color: $success_color_50 !important;
 }
 .text-warning {
-    color: $warning_color;
+    color: $warning_color !important;
 }
 .text-warning_50 {
-    color: $warning_color_50;
+    color: $warning_color_50 !important;
 }
 .text-placeholder {
-    color: $placeholder_color;
+    color: $placeholder_color !important;
 }
 .text-title {
-    color: $title_color;
+    color: $title_color !important;
 }
 .text-default_dark {
-    color: $default_text_color;
+    color: $default_text_color_dark !important;
 }
 .text-default {
-    color: $default_text_color;
+    color: $default_text_color !important;
 }
 .text-white {
-    color: $white_color;
+    color: $white_color !important;
 }
 .text-white_50 {
-    color: $white_color_50;
+    color: $white_color_50 !important;
 }
 .h-100 {
     height: 100%;
@@ -72,6 +72,19 @@ a {
     width: 100vw;
     overflow: hidden;
     background: $bg_container;
+}
+
+.main-content {
+    height: 100vh;
+    width: calc(100vw - 100px);
+    background: transparent;
+}
+
+.container {
+    height: calc(100vh - 72px);
+    width: 100%;
+    padding: 10px;
+    background: transparent;
 }
 
 /**
@@ -154,6 +167,22 @@ DRAWER CONTENT
     animation: rotate 3s linear infinite;
 }
 
+.bordered {
+    border: 1.225px solid $divider_color !important;
+}
+.bordered-left {
+    border-left: 1.225px solid $divider_color !important;
+}
+.bordered-right {
+    border-right: 1.225px solid $divider_color !important;
+}
+.bordered-top {
+    border-top: 1.225px solid $divider_color !important;
+}
+.bordered-bottom {
+    border-bottom: 1.225px solid $divider_color !important;
+}
+
 @keyframes rotate {
     0% {
         transform: rotate(0);
@@ -173,6 +202,176 @@ DRAWER CONTENT
         .login-form,
         .reset-pass-form {
             width: 100%;
+        }
+    }
+}
+
+// Style of menu bar.
+
+.menu-bar__wrapper {
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100vh;
+    max-height: 100vh;
+    background: $white_color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .menu-bar-top {
+        display: flex;
+        flex-direction: column;
+    }
+    .logo {
+        height: 60px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 15px 0;
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+    .menu-content {
+        margin-top: 10px;
+    }
+    .menu-bar-item {
+        position: relative;
+        height: 60px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+        &:hover,
+        button:hover {
+            cursor: pointer;
+            background: $bg_input;
+            .text-indicator {
+                transition-delay: 500ms;
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        &.active {
+            .menu-indicator {
+                background: $danger_color;
+            }
+            button {
+                color: $primary_color;
+            }
+        }
+        .menu-indicator {
+            width: 5px;
+            height: 40px;
+            background: transparent;
+            margin: 10px 0;
+            border-radius: 50px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        button {
+            font-size: 20px;
+            color: $default_text_color;
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            transition: 0.3s;
+            i {
+                width: 30px;
+                height: 30px;
+                font-size: inherit;
+                color: inherit;
+                transition: 0.3s;
+            }
+        }
+        .text-indicator {
+            position: absolute;
+            top: 25%;
+            left: calc(100% + 10px);
+            color: $default_text_color_dark;
+            background: $white_color;
+            padding: 5px 9px;
+            white-space: nowrap;
+            border-radius: 5px;
+            box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+            transition: opacity 0.3s, transform 0.3s;
+            opacity: 0;
+            transform: scale(0);
+            transform-origin: left;
+            &::before {
+                content: '';
+                width: 10px;
+                height: 10px;
+                background: inherit;
+                transform: rotate(45deg);
+                position: absolute;
+                top: 30%;
+                left: -5px;
+            }
+        }
+    }
+}
+
+.header-bar__wrapper {
+    background: $white_color;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .title {
+        font-size: 20px;
+        margin: 15px 20px;
+        color: $title_color;
+    }
+    .header-bar__options {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .header-options {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            button.icon-btn {
+                background: transparent;
+                color: $default_text_color_dark;
+                font-size: 25px;
+                margin: 0;
+                i {
+                    font-size: inherit;
+                }
+                &:hover {
+                    background: rgba(0, 0, 0, 0.08);
+                    color: $primary_color;
+                    box-shadow: none;
+                }
+            }
+        }
+        .profile-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 5rem 10px 25px;
+            .profile {
+                height: 50px;
+                width: 50px;
+                overflow: hidden;
+                border-radius: 50%;
+                border: 1px solid $default_text_color;
+                margin-right: 15px;
+                background-color: rgba(65, 63, 148, 0.151);
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
         }
     }
 }
