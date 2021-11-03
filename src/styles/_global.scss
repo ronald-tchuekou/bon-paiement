@@ -86,7 +86,12 @@ a {
     padding: 10px;
     background: transparent;
 }
-
+.p-r {
+    position: relative;
+}
+.p-a {
+    position: absolute;
+}
 /**
 DRAWER CONTENT
 @author Ronald Tchuekou
@@ -372,6 +377,39 @@ DRAWER CONTENT
                     height: 100%;
                 }
             }
+        }
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.info-option {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    i {
+        width: 30px;
+        height: 30px;
+    }
+    .info-content {
+        position: absolute;
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        width: 500px;
+        height: 500px;
+        background: $white_color;
+        box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.13);
+        transform-origin: top right;
+        transition: 0.3s;
+        border-radius: 10px;
+        opacity: 0;
+        transform: scale(0);
+        &.show {
+            opacity: 1;
+            transform: scale(1);
         }
     }
 }

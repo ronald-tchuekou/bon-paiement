@@ -4,10 +4,11 @@ import { LangContext } from '../src/context';
 import { Lang } from '../src/lang';
 import { MenuBar } from '../src/components/menu_bar';
 import { HeaderBar } from '../src/components/header_bar';
-import { Button } from '../src/base/buttons';
+import { Button, IconButton } from '../src/base/buttons';
 import { useRouter } from 'next/router';
 
 export default function HomePage() {
+    const info_content_ref = React.useRef(null);
     const [lang, setLang] = React.useState('en');
 
     const router = useRouter();
@@ -30,7 +31,46 @@ export default function HomePage() {
                 <MenuBar current="home" />
                 <div className="main-content">
                     <HeaderBar current={Lang.home[lang]} />
-                    <div className="container">
+                    <div className="container p-r">
+                        <div tabIndex="0" className="info-option">
+                            <IconButton
+                                onClick={() => {
+                                    info_content_ref.current.classList.toggle('show');
+                                }}
+                                color="warning"
+                                size="lg"
+                            >
+                                <i className="fi fi-rr-info t-30 text-center"></i>
+                            </IconButton>
+                            <div ref={info_content_ref} className={`info-content`}>
+                                <svg
+                                    className="h-100 w-100"
+                                    width="36"
+                                    height="36"
+                                    viewBox="0 0 36 36"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M17.2009 35.0813C17.4366 35.4896 18.026 35.4896 18.2618 35.0813L22.7848 27.2471C23.0206 26.8388 22.7259 26.3284 22.2544 26.3284H13.2083C12.7368 26.3284 12.4421 26.8388 12.6778 27.2471L17.2009 35.0813Z"
+                                        fill="#7942FB"
+                                    />
+                                    <path
+                                        d="M17.2009 0.918742C17.4366 0.510411 18.026 0.510412 18.2618 0.918744L22.7848 8.75286C23.0206 9.1612 22.7259 9.67161 22.2544 9.67161H13.2083C12.7368 9.67161 12.4421 9.16119 12.6778 8.75286L17.2009 0.918742Z"
+                                        fill="#7942FB"
+                                    />
+                                    <path
+                                        d="M35.0812 18.799C35.4896 18.5632 35.4896 17.9738 35.0812 17.7381L27.2471 13.2151C26.8387 12.9793 26.3283 13.274 26.3283 13.7455L26.3283 22.7916C26.3283 23.2631 26.8387 23.5578 27.2471 23.322L35.0812 18.799Z"
+                                        fill="#7942FB"
+                                    />
+                                    <path
+                                        d="M0.918756 18.799C0.510421 18.5632 0.510422 17.9738 0.918757 17.7381L8.75292 13.2151C9.16126 12.9793 9.67167 13.274 9.67167 13.7455L9.67167 22.7916C9.67167 23.2631 9.16125 23.5578 8.75292 23.322L0.918756 18.799Z"
+                                        fill="#7942FB"
+                                    />
+                                    <ellipse cx="18.0002" cy="17.9998" rx="5.10449" ry="5.10446" fill="#ED5B75" />
+                                </svg>
+                            </div>
+                        </div>
                         <div className="h-100 w-100 d-flex d-flex-c content-center items-center">
                             <div className="wellcome-img">
                                 <svg
