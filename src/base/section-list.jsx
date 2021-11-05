@@ -3,17 +3,19 @@ import PropTypes from 'prop-types';
 import { IconButton } from './buttons';
 
 export const SectionList = (props) => {
-    const { position } = props;
+    const { position, className } = props;
 
-    return <div className={`section-list__wrapper bordered-${position}`}>{props.children}</div>;
+    return <div className={`section-list__wrapper bordered-${position} ${className}`}>{props.children}</div>;
 };
 
 SectionList.propTypes = {
     position: PropTypes.oneOf(['', 'left', 'right']),
+    className: PropTypes.string,
 };
 
 SectionList.defaultProps = {
     position: '',
+    className: '',
 };
 
 export const SectionListHeader = (props) => {
@@ -82,14 +84,36 @@ export const SectionListContent = (props) => {
 };
 
 export const SectionListItem = (props) => {
-    const { selected } = props;
-    return <div className={`section-list__item ${selected ? 'active' : ''} p-10`}>{props.children}</div>;
+    const { selected, withOptions, onDelete, onEdit } = props;
+    return (
+        <div className={`section-list__item ${selected ? 'active' : ''} p-10`}>
+            {props.children}
+            {withOptions ? (
+                <div className="options">
+                    <IconButton onClick={onEdit} color="white">
+                        <i className="fi fi-rr-pencil text-primary"></i>
+                    </IconButton>
+                    <IconButton onClick={onDelete} color="white">
+                        <i className="fi fi-rr-trash text-danger"></i>
+                    </IconButton>
+                </div>
+            ) : (
+                <></>
+            )}
+        </div>
+    );
 };
 
 SectionListItem.propTypes = {
     selected: PropTypes.bool,
+    withOptions: PropTypes.bool,
+    onDelete: PropTypes.func,
+    onEdit: PropTypes.func,
 };
 
 SectionListItem.defaultProps = {
     selected: false,
+    withOptions: false,
+    onDelete: () => {},
+    onEdit: () => {},
 };

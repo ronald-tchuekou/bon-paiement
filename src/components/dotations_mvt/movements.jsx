@@ -1,9 +1,10 @@
 import React from 'react';
+import { IconButton } from '../../base/buttons';
 import { LangContext } from '../../../src/context';
 import { Lang } from '../../../src/lang';
 import { SectionList, SectionListContent, SectionListHeader, SectionListItem } from '../../../src/base/section-list';
 
-export const DotationsList = (props) => {
+export const Movements = (props) => {
     const { lang } = React.useContext(LangContext);
 
     const [list, setList] = React.useState([]);
@@ -23,16 +24,30 @@ export const DotationsList = (props) => {
                 search
                 onChange={(value) => {}}
                 onValidate={(value) => alert(value)}
-                searchPlaceHolder={Lang.search_dotation[lang]}
-                title={Lang.dotation_list[lang]}
-            ></SectionListHeader>
+                searchPlaceHolder={Lang.search_mvt[lang]}
+                title={Lang.mvt_list[lang]}
+            >
+                <IconButton color={'warning'}>
+                    <i className="fi fi-rr-plus-small t-30"></i>
+                </IconButton>
+            </SectionListHeader>
             <SectionListContent>
                 {list.map((item, i) => (
-                    <SectionListItem selected={current === i} key={i}>
+                    <SectionListItem
+                        withOptions
+                        onDelete={() => alert('Deletion is not impelement!')}
+                        onEdit={() => alert('Edition is not implement!')}
+                        selected={current === i}
+                        key={i}
+                    >
                         <div onClick={() => setCurrent(i)} className="d-flex content-between items-center">
                             <div>
-                                <div className="text-default_gray">Mandragora Mansion - MM</div>
-                                <p className="text-primary text-bold t-14">1,000,000 XFA</p>
+                                <div className="text-default_gray">Mouvement {i}</div>
+                                <p className="text-bold t-14 ellipsize text-warning">
+                                    <span>Charge: 10,000 XFA</span>
+                                    <span>Avance: 5,000 XFA</span>
+                                </p>
+                                <small className="text-default">Ajouté le 12 Janv 2021</small>
                             </div>
                             {current === i ? (
                                 <div className="text-center text-primary">

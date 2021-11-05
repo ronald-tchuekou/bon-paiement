@@ -6,6 +6,8 @@ import { MenuBar } from '../src/components/menu_bar';
 import { HeaderBar } from '../src/components/header_bar';
 import { SectionList, SectionListContent, SectionListHeader, SectionListItem } from '../src/base/section-list';
 import { DotationsList } from '../src/components/dotations_mvt/dotations_list';
+import { Movements } from '../src/components/dotations_mvt/movements';
+import { Beneficiers } from '../src/components/dotations_mvt/beneficiers';
 
 export default function DotationMvt() {
     const [lang, setLang] = React.useState('fr');
@@ -32,6 +34,8 @@ export default function DotationMvt() {
                     <div className="container">
                         <div className="wrapper-content d-flex d-flex-r">
                             <DotationsList />
+                            <Movements />
+                            <Beneficiers />
                         </div>
 
                         <div className="text-default copyright">&copy;&nbsp;{Lang.copyright[lang]}</div>

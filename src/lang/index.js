@@ -131,4 +131,20 @@ export const Lang = {
         fr: 'Rechercher une dotation...',
         en: 'Search a dotation...',
     },
+    search_mvt: {
+        fr: 'Rechercher un mouvement...',
+        en: 'Searh a movement...',
+    },
+    mvt_list: {
+        fr: 'Liste des mouvements',
+        en: 'Movements list',
+    },
+    beneficiers_of_mvt: {
+        fr: 'Bénéficiaires du mouvement',
+        en: 'Beneficiers of the movement',
+    },
+    search_beneficiers: {
+        fr: 'Rechercher un bénéficiaire...',
+        en: 'Search a beneficier...',
+    },
 };

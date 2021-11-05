@@ -39,6 +39,9 @@
 .text-default_dark {
     color: $default_text_color_dark !important;
 }
+.text-default_gray {
+    color: $defualt_text_color_gray !important;
+}
 .text-default {
     color: $default_text_color !important;
 }
@@ -568,6 +571,7 @@ img {
         overflow-y: auto;
     }
     .section-list__item {
+        position: relative;
         transition: 0.3s;
         border-radius: 10px;
         &.active {
@@ -579,6 +583,35 @@ img {
             &.active {
                 background: rgba(0, 0, 0, 0.07);
             }
+            .options {
+                transition-delay: 0.5s;
+                transform: scale(1);
+            }
+        }
+        .options {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 50px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px;
+            background: linear-gradient(227.28deg, $white_color 0%, $white_color_50 60%, rgba(255, 255, 255, 0) 100%);
+            border-top-right-radius: 10px;
+            transition: 0.3s;
+            transform-origin: right top;
+            transform: scale(0);
+            button {
+                margin: 2px;
+            }
         }
     }
+}
+
+.ellipsize {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    white-space: nowrap;
 }
