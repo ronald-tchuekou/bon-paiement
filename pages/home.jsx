@@ -6,10 +6,11 @@ import { MenuBar } from '../src/components/menu_bar';
 import { HeaderBar } from '../src/components/header_bar';
 import { Button, IconButton } from '../src/base/buttons';
 import { useRouter } from 'next/router';
+import { OnOutsideClickListener } from '../src/scripts/app';
 
 export default function HomePage() {
     const info_content_ref = React.useRef(null);
-    const [lang, setLang] = React.useState('en');
+    const [lang, setLang] = React.useState('fr');
 
     const router = useRouter();
 
@@ -19,6 +20,15 @@ export default function HomePage() {
             setLang: setLang,
         };
     }, [lang, setLang]);
+
+    React.useEffect(() => {
+        let out = OnOutsideClickListener(info_content_ref.current, () => {
+            info_content_ref.current.classList.remove('show');
+        });
+        return () => {
+            out.remove();
+        };
+    }, []);
 
     return (
         <LangContext.Provider value={lang_context}>

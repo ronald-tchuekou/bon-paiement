@@ -16,9 +16,11 @@ export const Button = (props) => {
 };
 Button.defaultProps = {
     color: '',
+    className: '',
 };
 Button.propTypes = {
-    color: PropTypes.oneOf(['primary', 'danger', 'warning', 'success', 'white']),
+    color: PropTypes.oneOf(['', 'primary', 'danger', 'warning', 'success', 'white']),
+    className: PropTypes.string,
 };
 
 /**
@@ -27,9 +29,9 @@ Button.propTypes = {
  * @returns React.JSXElement
  */
 export const IconButton = (props) => {
-    const { color, children, size } = props;
+    const { color, children, size, className } = props;
     return (
-        <button {...props} className={`btn icon-btn contained-${color} ${size}`}>
+        <button {...props} className={`btn icon-btn contained-${color} ${size} ${className}`}>
             {children}
         </button>
     );
@@ -40,5 +42,5 @@ IconButton.defaultProps = {
 };
 IconButton.propTypes = {
     ...Button.propTypes,
-    size: PropTypes.oneOf(['mg', 'lg']),
+    size: PropTypes.oneOf(['', 'mg', 'lg']),
 };

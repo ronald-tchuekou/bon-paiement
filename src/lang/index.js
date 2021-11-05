@@ -115,4 +115,20 @@ export const Lang = {
         fr: 'Voir de dashboard',
         en: 'See the dashboard',
     },
+    all_notifications: {
+        fr: 'Tous les notifications',
+        en: 'All notifications',
+    },
+    no_content_to_show: {
+        fr: 'Pas de contenu à afficher !',
+        en: 'No content to show!',
+    },
+    dotation_list: {
+        fr: 'Liste de dotations',
+        en: 'Dotations list',
+    },
+    search_dotation: {
+        fr: 'Rechercher une dotation...',
+        en: 'Search a dotation...',
+    },
 };

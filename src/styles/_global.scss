@@ -332,6 +332,9 @@ DRAWER CONTENT
         font-size: 20px;
         margin: 15px 20px;
         color: $title_color;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .header-bar__options {
         display: flex;
@@ -348,9 +351,12 @@ DRAWER CONTENT
                 color: $default_text_color_dark;
                 font-size: 25px;
                 margin: 0;
+                box-shadow: unset;
                 i {
                     font-size: inherit;
                 }
+                &:active,
+                &:focus,
                 &:hover {
                     background: rgba(0, 0, 0, 0.08);
                     color: $primary_color;
@@ -410,6 +416,169 @@ DRAWER CONTENT
         &.show {
             opacity: 1;
             transform: scale(1);
+        }
+    }
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+// Style to manager the notification widget.
+.notifications_bar__wrapper {
+    position: fixed;
+    top: 71px;
+    right: -400px;
+    background: $white_color;
+    width: 400px;
+    min-width: 400px;
+    min-width: 400px;
+    height: calc(100vh - 71px);
+    z-index: 1;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.13);
+    transition: 0.3s;
+    &.show {
+        right: 0;
+    }
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        .title {
+            color: $title_color;
+            font-size: 17px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0 10px 0 0;
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button {
+                height: 35px;
+                width: 35px;
+                margin: 3px;
+                box-shadow: unset;
+                background: $white_color;
+                color: $default_text_color;
+                &:active,
+                &:hover,
+                &:focus {
+                    background: $divider_color;
+                    color: $input_rext_color;
+                }
+            }
+        }
+    }
+    .body {
+        height: calc(100% - 63px);
+        max-height: calc(100% - 63px);
+        padding-top: 10px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        .empty-content {
+            padding: 20px;
+            text-align: center;
+            svg {
+                width: 70%;
+            }
+        }
+        .notification-item {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            transition: 0.3s;
+            border-radius: 10px;
+            &:hover {
+                cursor: default;
+                background: rgba(0, 0, 0, 0.05);
+            }
+            .profile {
+                background: $white_color;
+                flex: none;
+                height: 60px;
+                width: 60px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-right: 10px;
+            }
+            .content {
+                .text-title {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    max-width: 280px;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+}
+
+.wrapper-content {
+    background: $white_color;
+    height: calc(100% - 40px);
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.section-list__wrapper {
+    background: $white_color;
+    width: 100%;
+    height: 100%;
+    .section-list__header {
+        width: 100%;
+        min-height: 50px;
+        max-height: 50px;
+        padding: 0 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input {
+            border: none;
+            outline: none;
+            padding: 8px 10px;
+            font: inherit;
+            font-size: 18px;
+            color: $default_text_color_dark;
+            transition: 0.3s;
+            &::placeholder {
+                color: $placeholder_color;
+            }
+            &:focus {
+                border-bottom: 1.698px solid $primary_color;
+            }
+        }
+    }
+    .section-list__content {
+        max-height: calc(100% - 51px);
+        height: calc(100% - 51px);
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .section-list__item {
+        transition: 0.3s;
+        border-radius: 10px;
+        &.active {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        &:hover {
+            cursor: default;
+            background: rgba(0, 0, 0, 0.03);
+            &.active {
+                background: rgba(0, 0, 0, 0.07);
+            }
         }
     }
 }
