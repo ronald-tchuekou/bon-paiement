@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IconButton } from './buttons';
+import { AddLoader } from '../scripts/app';
 
 export const SectionList = (props) => {
     const { position, className } = props;
@@ -21,7 +22,7 @@ SectionList.defaultProps = {
 export const SectionListHeader = (props) => {
     const search_input_ref = React.useRef(null);
 
-    const { title, searchPlaceHolder, search, onChange, onValidate, propose } = props;
+    const { title, searchPlaceHolder, search, onChange, onValidate, propose, showBackPress, onBackPress } = props;
 
     const [show_search, showSearch] = React.useState(false);
 
@@ -38,6 +39,13 @@ export const SectionListHeader = (props) => {
 
     return (
         <div className={`section-list__header bordered-bottom`}>
+            {showBackPress ? (
+                <IconButton onClick={onBackPress} color={'white'}>
+                    <i className="fi fi-rr-arrow-small-left t-25"></i>
+                </IconButton>
+            ) : (
+                <></>
+            )}
             <input
                 ref={search_input_ref}
                 className={`w-100 ${show_search ? '' : 'hide'}`}
@@ -68,6 +76,8 @@ SectionListHeader.propTypes = {
     onChange: PropTypes.func,
     onValidate: PropTypes.func,
     propose: PropTypes.bool,
+    showBackPress: PropTypes.bool,
+    onBackPress: PropTypes.func,
 };
 
 SectionListHeader.defaultProps = {
@@ -77,11 +87,38 @@ SectionListHeader.defaultProps = {
     onChange: () => {},
     onValidate: () => {},
     propose: false,
+    showBackPress: false,
+    onBackPress: () => {},
 };
 
-export const SectionListContent = (props) => {
-    return <div className={`section-list__content p-15`}>{props.children}</div>;
-};
+export const SectionListContent = React.forwardRef(
+    (props, ref) => {
+        const { className } = props;
+        const loader_ref = React.useRef(null);
+
+        const [loader, setLoader] = React.useState(undefined);
+
+        React.useEffect(() => {
+            setLoader(AddLoader(loader_ref.current));
+        }, []);
+
+        React.useImperativeHandle(ref, () => ({
+            showLoader: () => {
+                if (loader) loader.show();
+            },
+            dismissLoader: () => {
+                if (loader) loader.dismiss();
+            },
+        }));
+
+        return (
+            <div ref={loader_ref} className={`section-list__content ${className}`}>
+                {props.children}
+            </div>
+        );
+    },
+    { displayName: 'SectionListContent' }
+);
 
 export const SectionListItem = (props) => {
     const { selected, withOptions, onDelete, onEdit } = props;

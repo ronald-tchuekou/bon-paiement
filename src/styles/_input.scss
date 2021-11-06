@@ -49,6 +49,11 @@
             &::placeholder {
                 color: $default_text_color;
             }
+            &:-internal-autofill-selected {
+                background: -internal-light-dark(transparent, transparent) !important;
+                color: $input_rext_color !important;
+                appearance: inherit;
+            }
         }
     }
     .error_text {

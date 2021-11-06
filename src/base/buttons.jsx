@@ -17,10 +17,12 @@ export const Button = (props) => {
 Button.defaultProps = {
     color: '',
     className: '',
+    onClick: () => {},
 };
 Button.propTypes = {
     color: PropTypes.oneOf(['', 'primary', 'danger', 'warning', 'success', 'white']),
     className: PropTypes.string,
+    onClick: PropTypes.func,
 };
 
 /**

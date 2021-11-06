@@ -11,6 +11,10 @@ export const Lang = {
         fr: 'Mot de passe',
         en: 'Password',
     },
+    movement: {
+        fr: 'Mouvement',
+        en: 'Movement',
+    },
     confirm_password: {
         fr: 'Confirmation',
         en: 'Confirmation',
@@ -146,5 +150,77 @@ export const Lang = {
     search_beneficiers: {
         fr: 'Rechercher un bénéficiaire...',
         en: 'Search a beneficier...',
+    },
+    beneficier_details: {
+        fr: 'Details du bénéficiaire',
+        en: 'Beneficier details',
+    },
+    add_new_beneficier: {
+        fr: 'Ajouter un nouveau bénéficiaire',
+        en: 'Add new beneficier',
+    },
+    complet_name: {
+        fr: 'Nom Comple',
+        en: 'Complet name',
+    },
+    email: {
+        fr: 'E-mail',
+        en: 'E-mail',
+    },
+    pay_amount: {
+        fr: 'Montant payé',
+        en: 'Pay amount',
+    },
+    pay_mode: {
+        fr: 'Mode de paiement',
+        en: 'Pay mode',
+    },
+    name: {
+        fr: 'Nom',
+        en: 'Name',
+    },
+    first_name: {
+        fr: 'Prénom',
+        en: 'First name',
+    },
+    phone: {
+        fr: 'Téléphone',
+        en: 'Phone',
+    },
+    mail_address: {
+        fr: 'Adresse e-mail',
+        en: 'Mail address',
+    },
+    location: {
+        fr: 'Localisation',
+        en: 'Location',
+    },
+    pay_amount: {
+        fr: 'Montant de paiement',
+        en: 'Pay amount',
+    },
+    bank: {
+        fr: 'Banque',
+        en: 'Bank',
+    },
+    select_bank: {
+        fr: 'Sélectionner une banque',
+        en: 'Select a bank',
+    },
+    dotation: {
+        fr: 'Datation ',
+        en: 'Dotation',
+    },
+    banck_ref: {
+        fr: 'Référence de la banque',
+        en: 'Banck ref',
+    },
+    cancel: {
+        fr: 'Annuler',
+        en: 'Cancel',
+    },
+    save: {
+        fr: 'Enregistrer',
+        en: 'Save',
     },
 };

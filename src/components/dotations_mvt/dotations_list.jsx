@@ -1,21 +1,46 @@
 import React from 'react';
-import { LangContext } from '../../../src/context';
+import { CurrentDotationContext, CurrentMovementContext, DotationsContext, LangContext } from '../../../src/context';
 import { Lang } from '../../../src/lang';
 import { SectionList, SectionListContent, SectionListHeader, SectionListItem } from '../../../src/base/section-list';
+import Dotation from '../../models/Dotation';
+import Movement from '../../models/Movement';
 
 export const DotationsList = (props) => {
+    const content_ref = React.useRef(null);
+
     const { lang } = React.useContext(LangContext);
 
-    const [list, setList] = React.useState([]);
-    const [current, setCurrent] = React.useState(-1);
+    const { dotations, setDotations } = React.useContext(DotationsContext);
+    const { currentDotation, setCurrentDotation } = React.useContext(CurrentDotationContext);
+    const { setCurrentMovement } = React.useContext(CurrentMovementContext);
 
     React.useEffect(() => {
-        let content = [];
-        for (let i = 1; i <= 20; i++) {
-            content.push(i);
-        }
-        setList(content);
+        setTimeout(() => {
+            getDotations();
+        }, 300);
     }, []);
+
+    function getDotations() {
+        content_ref.current.showLoader();
+        setDotations([]);
+        new Dotation().getAll({
+            success: (result) => {
+                setDotations(result);
+            },
+            error: (e) => console.error(e),
+            final: () => {
+                content_ref.current.dismissLoader();
+            },
+        });
+    }
+
+    /**
+     * @param {Dotation} item
+     */
+    function handleItemClick(item) {
+        setCurrentDotation(item);
+        setCurrentMovement(new Movement());
+    }
 
     return (
         <SectionList position="right" className="flex-1">
@@ -26,24 +51,33 @@ export const DotationsList = (props) => {
                 searchPlaceHolder={Lang.search_dotation[lang]}
                 title={Lang.dotation_list[lang]}
             ></SectionListHeader>
-            <SectionListContent>
-                {list.map((item, i) => (
-                    <SectionListItem selected={current === i} key={i}>
-                        <div onClick={() => setCurrent(i)} className="d-flex content-between items-center">
-                            <div>
-                                <div className="text-default_gray">Mandragora Mansion - MM</div>
-                                <p className="text-primary text-bold t-14">1,000,000 XFA</p>
-                            </div>
-                            {current === i ? (
-                                <div className="text-center text-primary">
-                                    <i className="fi fi-rr-angle-small-right t-25"></i>
+            <SectionListContent ref={content_ref}>
+                {dotations.map(
+                    /**
+                     * @param {Dotation} item
+                     * @returns {array}
+                     */
+                    (item) => (
+                        <SectionListItem selected={currentDotation.code === item.code} key={item.code}>
+                            <div onClick={() => handleItemClick(item)} className="d-flex content-between items-center">
+                                <div>
+                                    <div className="text-default_gray">
+                                        {item.slipType.libelle} <i className="fi fi-rr-minus-small"></i>{' '}
+                                        {item.slipType.abreviation}
+                                    </div>
+                                    <p className="text-primary text-bold t-14">{item.amount + ' XFA'}</p>
                                 </div>
-                            ) : (
-                                <></>
-                            )}
-                        </div>
-                    </SectionListItem>
-                ))}
+                                {currentDotation.code === item.code ? (
+                                    <div className="text-center text-primary">
+                                        <i className="fi fi-rr-angle-small-right t-25"></i>
+                                    </div>
+                                ) : (
+                                    <></>
+                                )}
+                            </div>
+                        </SectionListItem>
+                    )
+                )}
             </SectionListContent>
         </SectionList>
     );
