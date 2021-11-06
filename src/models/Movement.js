@@ -58,7 +58,7 @@ export default class Movement {
         joint_articles = undefined,
         code_parent = undefined,
         user_id = undefined,
-        dotation = undefined,
+        dotation = new Dotation(),
         date = undefined
     ) {
         this.code = code;

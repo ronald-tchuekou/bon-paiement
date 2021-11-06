@@ -11,7 +11,6 @@ import {
 } from '../../context';
 import { Lang } from '../../lang';
 import { SectionList, SectionListContent, SectionListHeader } from '../../base/section-list';
-import Beneficier from '../../models/Beneficier';
 import DetailMovement from '../../models/DetailMovement';
 import constants from '../../scripts/constants';
 
@@ -22,8 +21,7 @@ export const DetailsMovement = (props) => {
     const { lang } = React.useContext(LangContext);
     const { currentMovement } = React.useContext(CurrentMovementContext);
     const { setDetailMovements } = React.useContext(DetailMovemenstContext);
-    const { setCurrentDetailMovement: setCurrentDetailMovement, currentDetailMovement: currentDetailMovement } =
-        React.useContext(CurrentDetailMovementContext);
+    const { setCurrentDetailMovement, currentDetailMovement } = React.useContext(CurrentDetailMovementContext);
 
     const [drawer, setDrawer] = React.useState(undefined);
 
@@ -42,7 +40,7 @@ export const DetailsMovement = (props) => {
 
     React.useEffect(() => {
         setDetailMovements([]);
-        setCurrentDetailMovement({});
+        setCurrentDetailMovement(new DetailMovement());
         if (currentMovement.code)
             setTimeout(() => {
                 getBeneficiers();
@@ -81,7 +79,7 @@ export const DetailsMovement = (props) => {
             <SectionListHeader
                 search
                 showBackPress={currentDetailMovement.code !== undefined && currentDetailMovement.code !== null}
-                onBackPress={() => setCurrentDetailMovement({})}
+                onBackPress={() => setCurrentDetailMovement(new DetailMovement())}
                 onChange={(value) => {}}
                 onValidate={(value) => alert(value)}
                 searchPlaceHolder={Lang.search_beneficiers[lang]}
@@ -228,20 +226,20 @@ export const BeneficierDetails = (props) => {
         showLoader();
         setTimeout(() => {
             hideLoader();
-            setCurrentDetailMovement({});
+            setCurrentDetailMovement(new DetailMovement());
         }, 1000);
     }
 
     function handleCancel() {
-        resetAll();
-    }
-
-    React.useMemo(() => {
         if (currentDetailMovement.code) {
             initAll();
         } else {
             resetAll();
         }
+    }
+
+    React.useMemo(() => {
+        handleCancel();
     }, [currentDetailMovement]);
 
     return (

@@ -24,7 +24,7 @@ export default class Dotation {
 
     constructor(
         code = undefined,
-        slipType = undefined,
+        slipType = new SlipType(),
         amount = undefined,
         code_parent = undefined,
         user_id = undefined

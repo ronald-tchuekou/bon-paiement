@@ -61,11 +61,11 @@ export default class DetailMovement {
 
     constructor(
         code = undefined,
-        movement = undefined,
-        beneficier = undefined,
+        movement = new Movement(),
+        beneficier = new Beneficier(),
         charge_amount = undefined,
         pay_amount = undefined,
-        banck = undefined,
+        banck = new Banck(),
         check_ref = undefined,
         ref1 = undefined,
         ref2 = undefined,

@@ -10,6 +10,7 @@ import {
 import { Lang } from '../../../src/lang';
 import { SectionList, SectionListContent, SectionListHeader, SectionListItem } from '../../../src/base/section-list';
 import Movement from '../../models/Movement';
+import DetailMovement from '../../models/DetailMovement';
 
 export const Movements = (props) => {
     const content_ref = React.useRef(null);
@@ -39,7 +40,7 @@ export const Movements = (props) => {
     }
 
     function handleItemClick(item) {
-        setCurrentDetailMovement(new Movement());
+        setCurrentDetailMovement(new DetailMovement());
         setCurrentMovement(item);
     }
 
