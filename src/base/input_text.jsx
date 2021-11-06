@@ -9,16 +9,7 @@ import PropTypes from 'prop-types';
 export const TextInput = (props) => {
     const input_ref = React.useRef(null);
     const pass_icon_ref = React.useRef(null);
-    const {
-        onValueChange,
-        value,
-        placeholder,
-        label,
-        type,
-        disabled,
-        error,
-        helperText,
-    } = props;
+    const { onValueChange, value, placeholder, label, type, disabled, error, helperText, className } = props;
     const [is_focus, setFocus] = React.useState(false);
     function handleViewPassClick() {
         if (input_ref.current.type === 'password') {
@@ -33,17 +24,9 @@ export const TextInput = (props) => {
         input_ref.current.focus();
     }
     return (
-        <div
-            className={`text-input__wrapper ${disabled ? 'disabled' : ''} ${
-                error ? 'error' : ''
-            }`}
-        >
+        <div className={`text-input__wrapper ${disabled ? 'disabled' : ''} ${error ? 'error' : ''} ${className}`}>
             <div className={`input__content ${is_focus ? 'focus' : ''} `}>
-                {type === 'password' ? (
-                    <i className="fi fi-rr-lock"></i>
-                ) : (
-                    <></>
-                )}
+                {props.children}
                 <input
                     ref={input_ref}
                     onFocus={() => setFocus(true)}
@@ -56,16 +39,9 @@ export const TextInput = (props) => {
                     disabled={disabled}
                 />
             </div>
-            {error && helperText !== '' ? (
-                <div className="error_text">{helperText}</div>
-            ) : (
-                <></>
-            )}
+            {error && helperText !== '' ? <div className="error_text">{helperText}</div> : <></>}
             {type === 'password' ? (
-                <div
-                    onClick={handleViewPassClick}
-                    className="input_icon_indicator"
-                >
+                <div onClick={handleViewPassClick} className="input_icon_indicator">
                     <i ref={pass_icon_ref} className="fi fi-rr-eye"></i>
                 </div>
             ) : (

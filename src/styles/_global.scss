@@ -1,45 +1,700 @@
 /****************************************\
     Pour la gestion des styles globaux.
 \****************************************/
+@for $var from 1 to 50 {
+    .t-#{$var} {
+        font-size: $var + px !important;
+    }
+}
 .text-primary {
-    color: $primary_color;
+    color: $primary_color !important;
 }
 .text-primary_50 {
-    color: $primary_color_50;
+    color: $primary_color_50 !important;
 }
 .text-danger {
-    color: $danger_color;
+    color: $danger_color !important;
 }
 .text-danger_50 {
-    color: $danger_color_50;
+    color: $danger_color_50 !important;
 }
 .text-success {
-    color: $success_color;
+    color: $success_color !important;
 }
 .text-success_50 {
-    color: $success_color_50;
+    color: $success_color_50 !important;
 }
 .text-warning {
-    color: $warning_color;
+    color: $warning_color !important;
 }
 .text-warning_50 {
-    color: $warning_color_50;
+    color: $warning_color_50 !important;
 }
 .text-placeholder {
-    color: $placeholder_color;
+    color: $placeholder_color !important;
 }
 .text-title {
-    color: $title_color;
+    color: $title_color !important;
 }
 .text-default_dark {
-    color: $default_text_color;
+    color: $default_text_color_dark !important;
+}
+.text-default_gray {
+    color: $defualt_text_color_gray !important;
 }
 .text-default {
-    color: $default_text_color;
+    color: $default_text_color !important;
 }
 .text-white {
-    color: $white_color;
+    color: $white_color !important;
 }
 .text-white_50 {
-    color: $white_color_50;
+    color: $white_color_50 !important;
+}
+.h-100 {
+    height: 100%;
+}
+.w-100 {
+    width: 100%;
+}
+
+body {
+    background: $bg_container;
+}
+a {
+    text-decoration: none;
+    color: $primary_color;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.main-container {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: $bg_container;
+}
+
+.main-content {
+    height: 100vh;
+    width: calc(100vw - 100px);
+    background: transparent;
+}
+
+.container {
+    height: calc(100vh - 72px);
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+}
+.p-r {
+    position: relative;
+}
+.p-a {
+    position: absolute;
+}
+/**
+DRAWER CONTENT
+@author Ronald Tchuekou
+*/
+
+.drawer_content {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    .drawer {
+        transition: transform 0.4s;
+        transform: translate3d(0, 0, 0);
+        height: 100%;
+        overflow: hidden;
+
+        &::after {
+            content: '';
+            clear: both;
+            display: table;
+        }
+
+        .drawer__item {
+            float: left;
+            height: 100%;
+        }
+    }
+}
+
+.login-container {
+    padding: 20px;
+    max-width: 720px;
+    background: $bg_color;
+    box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.13);
+    border-radius: 10px;
+    overflow: hidden;
+    .login-content,
+    .reset-pass-content {
+        display: flex;
+        flex-direction: row;
+    }
+    .img {
+        height: 300px;
+        width: 340px;
+        min-height: 300px;
+        min-width: 340px;
+        text-align: center;
+        transition: 0.3s;
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+    // @media only screen and (max-width: $medium) {
+    // }
+    .login-form,
+    .reset-pass-form {
+        width: 340px;
+        padding: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .reset-pass__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.copyright {
+    font-size: 13px;
+    text-align: center;
+}
+
+.loader_icon {
+    width: 50px;
+    height: 50px;
+    animation: rotate 3s linear infinite;
+}
+
+.bordered {
+    border: 1.225px solid $divider_color !important;
+}
+.bordered-left {
+    border-left: 1.225px solid $divider_color !important;
+}
+.bordered-right {
+    border-right: 1.225px solid $divider_color !important;
+}
+.bordered-top {
+    border-top: 1.225px solid $divider_color !important;
+}
+.bordered-bottom {
+    border-bottom: 1.225px solid $divider_color !important;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    .login-container {
+        width: 90%;
+        flex-direction: column;
+        .img {
+            display: none;
+        }
+        .login-form,
+        .reset-pass-form {
+            width: 100%;
+        }
+    }
+}
+
+// Style of menu bar.
+
+.menu-bar__wrapper {
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100vh;
+    max-height: 100vh;
+    background: $white_color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .menu-bar-top {
+        display: flex;
+        flex-direction: column;
+    }
+    .logo {
+        height: 60px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 15px 0;
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+    .menu-content {
+        margin-top: 10px;
+    }
+    .menu-bar-item {
+        position: relative;
+        height: 60px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+        &:hover,
+        button:hover {
+            cursor: pointer;
+            background: $bg_input;
+            .text-indicator {
+                transition-delay: 500ms;
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        &.active {
+            .menu-indicator {
+                background: $danger_color;
+            }
+            button {
+                color: $primary_color;
+            }
+        }
+        .menu-indicator {
+            width: 5px;
+            height: 40px;
+            background: transparent;
+            margin: 10px 0;
+            border-radius: 50px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        button {
+            font-size: 20px;
+            color: $default_text_color;
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            transition: 0.3s;
+            i {
+                width: 30px;
+                height: 30px;
+                font-size: inherit;
+                color: inherit;
+                transition: 0.3s;
+            }
+        }
+        .text-indicator {
+            position: absolute;
+            top: 25%;
+            left: calc(100% + 10px);
+            color: $default_text_color_dark;
+            background: $white_color;
+            padding: 5px 9px;
+            white-space: nowrap;
+            border-radius: 5px;
+            box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+            transition: opacity 0.3s, transform 0.3s;
+            opacity: 0;
+            transform: scale(0);
+            transform-origin: left;
+            &::before {
+                content: '';
+                width: 10px;
+                height: 10px;
+                background: inherit;
+                transform: rotate(45deg);
+                position: absolute;
+                top: 30%;
+                left: -5px;
+            }
+        }
+    }
+}
+
+.header-bar__wrapper {
+    background: $white_color;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .title {
+        font-size: 20px;
+        margin: 15px 20px;
+        color: $title_color;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .header-bar__options {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .header-options {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            button.icon-btn {
+                background: transparent;
+                color: $default_text_color_dark;
+                font-size: 25px;
+                margin: 0;
+                box-shadow: unset;
+                i {
+                    font-size: inherit;
+                }
+                &:active,
+                &:focus,
+                &:hover {
+                    background: rgba(0, 0, 0, 0.08);
+                    color: $primary_color;
+                    box-shadow: none;
+                }
+            }
+        }
+        .profile-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 5rem 10px 25px;
+            .profile {
+                height: 50px;
+                width: 50px;
+                overflow: hidden;
+                border-radius: 50%;
+                border: 1px solid $default_text_color;
+                margin-right: 15px;
+                background-color: rgba(65, 63, 148, 0.151);
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.info-option {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    i {
+        width: 30px;
+        height: 30px;
+    }
+    .info-content {
+        position: absolute;
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        width: 500px;
+        height: 500px;
+        background: $white_color;
+        box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.13);
+        transform-origin: top right;
+        transition: 0.3s;
+        border-radius: 10px;
+        opacity: 0;
+        transform: scale(0);
+        &.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+// Style to manager the notification widget.
+.notifications_bar__wrapper {
+    position: fixed;
+    top: 71px;
+    right: -400px;
+    background: $white_color;
+    width: 400px;
+    min-width: 400px;
+    min-width: 400px;
+    height: calc(100vh - 71px);
+    z-index: 1;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.13);
+    transition: 0.3s;
+    &.show {
+        right: 0;
+    }
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        .title {
+            color: $title_color;
+            font-size: 17px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0 10px 0 0;
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button {
+                height: 35px;
+                width: 35px;
+                margin: 3px;
+                box-shadow: unset;
+                background: $white_color;
+                color: $default_text_color;
+                &:active,
+                &:hover,
+                &:focus {
+                    background: $divider_color;
+                    color: $input_rext_color;
+                }
+            }
+        }
+    }
+    .body {
+        height: calc(100% - 63px);
+        max-height: calc(100% - 63px);
+        padding-top: 10px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        .empty-content {
+            padding: 20px;
+            text-align: center;
+            svg {
+                width: 70%;
+            }
+        }
+        .notification-item {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            transition: 0.3s;
+            border-radius: 10px;
+            &:hover {
+                cursor: default;
+                background: rgba(0, 0, 0, 0.05);
+            }
+            .profile {
+                background: $white_color;
+                flex: none;
+                height: 60px;
+                width: 60px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-right: 10px;
+            }
+            .content {
+                .text-title {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    max-width: 280px;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+}
+
+.wrapper-content {
+    background: $white_color;
+    height: calc(100% - 40px);
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.overflow-h {
+    overflow: hidden;
+}
+
+.section-list__wrapper {
+    background: $white_color;
+    width: 100%;
+    height: 100%;
+    .section-list__header {
+        width: 100%;
+        min-height: 50px;
+        max-height: 50px;
+        padding: 0 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        button.contained-white {
+            color: $default_text_color;
+            &:hover {
+                color: $default_text_color_dark;
+            }
+        }
+        input {
+            border: none;
+            outline: none;
+            padding: 8px 10px;
+            font: inherit;
+            font-size: 18px;
+            color: $default_text_color_dark;
+            transition: 0.3s;
+            &::placeholder {
+                color: $placeholder_color;
+            }
+            &:focus {
+                border-bottom: 1.698px solid $primary_color;
+            }
+        }
+    }
+    .section-list__content {
+        max-height: calc(100% - 51px);
+        height: calc(100% - 51px);
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 8px;
+        &.scroll {
+            overflow-x: auto;
+            overflow-y: auto;
+        }
+        &.scroll-h {
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+        &.scroll-x {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    }
+    .section-list__item {
+        position: relative;
+        transition: 0.3s;
+        border-radius: 10px;
+        &.active {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        &:hover {
+            cursor: default;
+            background: rgba(0, 0, 0, 0.03);
+            &.active {
+                background: rgba(0, 0, 0, 0.07);
+            }
+            .options {
+                transition-delay: 0.5s;
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .options {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 50px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px;
+            background: linear-gradient(227.28deg, $white_color 0%, $white_color_50 60%, rgba(255, 255, 255, 0) 100%);
+            border-top-right-radius: 10px;
+            transition: transform 0.3s, opacity 0.1s;
+            transform-origin: right top;
+            transform: scale(0);
+            opacity: 0;
+            button {
+                margin: 2px;
+            }
+        }
+    }
+}
+.scroll {
+    overflow-x: auto;
+    overflow-y: auto;
+}
+.scroll-h {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.scroll-x {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.scroll-y {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.ellipsize {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    white-space: nowrap;
+}
+
+// Style of tables.
+.table-container {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    padding: 8px;
+    table {
+        font: inherit;
+        width: 100%;
+        height: 100%;
+        overflow: scroll;
+        border-collapse: collapse;
+        td {
+            white-space: nowrap;
+        }
+        thead {
+            padding: 5px;
+            color: $default_text_color_dark;
+            td {
+                padding: 5px 10px;
+            }
+        }
+        tbody {
+            tr {
+                overflow: hidden;
+                border-radius: 5px;
+                transition: 0.3s;
+                td {
+                    padding: 10px 10px;
+                    color: $defualt_text_color_gray;
+                }
+                &.selected {
+                    background: rgba(0, 0, 0, 0.09);
+                }
+                &:hover {
+                    cursor: pointer;
+                    background: rgba(0, 0, 0, 0.08);
+                }
+            }
+        }
+    }
 }

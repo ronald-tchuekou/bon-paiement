@@ -2,7 +2,7 @@
     Pour la gestion des champs d'edition.
 \******************************************/
 .text-input__wrapper {
-    margin: 5px;
+    margin: 5px 0;
     position: relative;
     i {
         color: $primary_color_50;
@@ -48,6 +48,11 @@
             color: $input_rext_color;
             &::placeholder {
                 color: $default_text_color;
+            }
+            &:-internal-autofill-selected {
+                background: -internal-light-dark(transparent, transparent) !important;
+                color: $input_rext_color !important;
+                appearance: inherit;
             }
         }
     }

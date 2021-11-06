@@ -72,14 +72,12 @@ $content-types: 'center', 'end', 'flex-end', 'flex-start', 'left', 'right', 'saf
 
 .d-flex {
     display: flex;
-    width: 100%;
     @include generatFlex('');
 }
 
 @media only screen and (min-width: $medium) {
     .m-d-flex {
         display: flex;
-        width: 100%;
         @include generatFlex('m-');
     }
 }
@@ -87,7 +85,6 @@ $content-types: 'center', 'end', 'flex-end', 'flex-start', 'left', 'right', 'saf
 @media only screen and (min-width: $large) {
     .l-d-flex {
         display: flex;
-        width: 100%;
         @include generatFlex('l-');
     }
 }
