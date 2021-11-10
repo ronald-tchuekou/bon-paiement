@@ -1,0 +1,119 @@
+.modal__wrapper {
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.212);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    &.show{
+        top: 0;
+        .modal{
+            transition-delay: .2s;
+            transform: translateY(0);
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    .modal {
+        z-index: 101;
+        position: relative;
+        width: 500px;
+        height: 500px;
+        background-color: $white_color;
+        box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.13);
+        border-radius: 10px;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        transition: .3s;
+        transform: translateY(-50px);
+
+        .modal__close_btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 5px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $default_text_color;
+            border: none;
+            outline: none;
+            transition: 0.3s;
+            i {
+                font-size: inherit;
+                color: inherit;
+                height: 12px;
+                width: 25px;
+            }
+            &:hover {
+                cursor: pointer;
+                background-color: rgba(0, 0, 0, 0.05);
+                color: $defualt_text_color_gray;
+            }
+        }
+    }
+    .modal__header {
+        padding: 10px;
+        font-size: 18px;
+        font-weight: 450;
+        color: $defualt_text_color_gray;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.05);
+        height: 45px;
+        max-height: 45px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        .title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: calc(100% - 35px);
+            white-space: nowrap;
+        }
+
+        button {
+            flex: none;
+            margin: 5px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            background-color: transparent;
+            justify-content: center;
+            align-items: center;
+            color: $default_text_color;
+            border: none;
+            outline: none;
+            transition: 0.3s;
+            font-size: 25px;
+            i {
+                font-size: inherit;
+                color: inherit;
+                height: 25px;
+                width: 25px;
+            }
+            &:hover {
+                cursor: pointer;
+                background-color: rgba(0, 0, 0, 0.05);
+                color: $defualt_text_color_gray;
+            }
+        }
+    }
+
+    .modal__content {
+        padding: 10px;
+        margin-top: 5px;
+
+        color: gray;
+    }
+}

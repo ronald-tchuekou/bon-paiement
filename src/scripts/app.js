@@ -102,13 +102,16 @@ export const AddLoader = (element) => {
 export const OnOutsideClickListener = (elt, callback) => {
     if (elt === null || elt === undefined) return;
     const done = (e) => {
-        let children = elt.querySelectorAll('*');
-        let target = e.target;
         let is_inside = false;
-        let index = 0;
-        while (!is_inside && index < children.length) {
-            is_inside = children[index] === target;
-            index++;
+        if (e.target === elt) is_inside = true;
+        else {
+            let children = elt.querySelectorAll('*');
+            let target = e.target;
+            let index = 0;
+            while (!is_inside && index < children.length) {
+                is_inside = children[index] === target;
+                index++;
+            }
         }
         if (!is_inside) {
             if (callback !== undefined) callback();
