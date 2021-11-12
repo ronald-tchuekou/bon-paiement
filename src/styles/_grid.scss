@@ -13,7 +13,7 @@
     &:before,
     &:after {
         content: '';
-        display: table;
+        display: block;
     }
     &:before {
         clear: both;

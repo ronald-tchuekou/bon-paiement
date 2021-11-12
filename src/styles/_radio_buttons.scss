@@ -1,0 +1,46 @@
+/*!
+ * Copyright (c) 12/11/2021 10:21
+ * @author Ronald Tchuekou
+ * @email ronaldtchuekou@gmail.com
+ */
+
+.radio-btn__wrapper {
+    position: relative;
+    display: inline-block;
+
+    input[type='radio'] {
+        position: absolute;
+        visibility: hidden;
+        &:checked ~ .radio-content .radio-state {
+            background: $primary_color;
+        }
+    }
+
+    .radio-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        &:hover {
+            cursor: pointer;
+            .radio-state {
+                border-color: $primary_color;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        .radio-state {
+            width: 20px;
+            height: 20px;
+            border: 3px solid $primary_color;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .radio-label {
+            padding-left: 15px;
+            font-size: 18px;
+            color: $default_text_color;
+        }
+    }
+}

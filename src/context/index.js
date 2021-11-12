@@ -56,3 +56,7 @@ export const CurrentDetailMovementContext = React.createContext({
     currentDetailMovement: new DetailMovement(),
     setCurrentDetailMovement: () => {},
 });
+
+export const ShowAddMvtPupopContext = React.createContext({
+    show_add_mvt_popup: () => {},
+});

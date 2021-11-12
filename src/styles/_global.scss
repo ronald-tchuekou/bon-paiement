@@ -698,3 +698,13 @@ img {
         }
     }
 }
+
+.wrong-image-picher{
+    border: 2px dashed $primary_color_50;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: $primary_color_50;
+}
