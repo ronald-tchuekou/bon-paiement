@@ -223,4 +223,32 @@ export const Lang = {
         fr: 'Enregistrer',
         en: 'Save',
     },
+    add_dotation_mvt: {
+        fr: 'Ajouter un nouveau mouvement de dotation',
+        en: 'Add new dotation movement',
+    },
+    info_about_dotation: {
+        fr: 'Informations sur la dotation budgétaire',
+        en: 'Information on budget allocation',
+    },
+    bon_type: {
+        fr: 'Type de bon',
+        en: 'Type of voucher',
+    },
+    bon_amount: {
+        fr: 'Montant de dotation',
+        en: 'Voucher amount',
+    },
+    amount_of_the_dotation: {
+        fr: 'Montant de la dotation',
+        en: 'Amout of the dotation',
+    },
+    charge_amount: {
+        fr: 'Montant charge',
+        en: 'Charge amount',
+    },
+    avance_amount: {
+        fr: 'Montant avancé',
+        en: 'Advanced amount',
+    },
 };
