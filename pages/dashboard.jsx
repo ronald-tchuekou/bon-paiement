@@ -6,9 +6,11 @@ import { MenuBar } from '../src/components/menu_bar';
 import { HeaderBar } from '../src/components/header_bar';
 import { Modal, ModalContent, ModalHeader } from '../src/base/modal';
 import { Button } from '../src/base/buttons';
+import { RadioButton } from '../src/base/radio_buttons';
 
 export default function Dashboard() {
     const [lang, setLang] = React.useState('fr');
+    const [sex, setSex] = React.useState('F');
 
     const modal_ref = React.useRef(null);
 
@@ -39,7 +41,9 @@ export default function Dashboard() {
                 <div className="main-content">
                     <HeaderBar current={Lang.dashboard[lang]} />
                     <div className="container">
-                        <Button>Click to show modal</Button>
+                        <RadioButton name="sex" label="Homme" checked={sex === 'H'} onClick={() => setSex('H')} />
+                        <br />
+                        <RadioButton name="sex" label="Femme" checked={sex === 'F'} onClick={() => setSex('F')} />
                     </div>
                 </div>
             </main>

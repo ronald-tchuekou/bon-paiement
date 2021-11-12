@@ -13,6 +13,8 @@ import { Lang } from '../../lang';
 import { SectionList, SectionListContent, SectionListHeader } from '../../base/section-list';
 import DetailMovement from '../../models/DetailMovement';
 import constants from '../../scripts/constants';
+import { RadioButton } from '../../base/radio_buttons';
+import { social_reason } from '../../scripts/constants/arrays';
 
 export const DetailsMovement = (props) => {
     const drawer_ref = React.useRef(null);
@@ -164,6 +166,7 @@ export const BeneficierDetails = (props) => {
 
     const [name, setName] = React.useState({ value: '', error: false, helper: '' });
     const [first_name, setFirstName] = React.useState({ value: '', error: false, helper: '' });
+    const [social_reason, setSocialReason] = React.useState({ value: '', error: false, helper: '' });
     const [civility, setCivility] = React.useState({ value: '', error: false, helper: '' });
     const [sex, setSex] = React.useState({ value: '', error: false, helper: '' });
     const [phone, setPhone] = React.useState({ value: '', error: false, helper: '' });
@@ -171,7 +174,7 @@ export const BeneficierDetails = (props) => {
     const [email, setEmail] = React.useState({ value: '', error: false, helper: '' });
     const [location, setLocation] = React.useState({ value: '', error: false, helper: '' });
     const [pay_amount, setPayAmount] = React.useState({ value: '', error: false, helper: '' });
-    const [pay_mode, setPayMode] = React.useState({ value: '', error: false, helper: '' });
+    const [pay_mode, setPayMode] = React.useState({ value: constants.PAY_MODE.banck, error: false, helper: '' });
     const [banck, setBanck] = React.useState({ value: '', error: false, helper: '' });
     const [banck_ref, setBanckRef] = React.useState({ value: '', error: false, helper: '' });
     const [ref1, setRef1] = React.useState({ value: '', error: false, helper: '' });
@@ -183,7 +186,7 @@ export const BeneficierDetails = (props) => {
         const detail = currentDetailMovement;
         setName({ value: detail.beneficier.name || '', error: false, helper: '' });
         setFirstName({ value: detail.beneficier.first_name || '', error: false, helper: '' });
-        setCivility({ value: detail.beneficier.civility || '', error: false, helper: '' });
+        setSocialReason({ value: detail.beneficier.civility || constants.PAY_MODE.banck, error: false, helper: '' });
         setSex({ value: detail.beneficier.civility || '', error: false, helper: '' });
         setPhone({ value: detail.beneficier.phone || '', error: false, helper: '' });
         setFax({ value: detail.beneficier.fax || '', error: false, helper: '' });
@@ -207,13 +210,14 @@ export const BeneficierDetails = (props) => {
         setName({ value: '', error: false, helper: '' });
         setFirstName({ value: '', error: false, helper: '' });
         setCivility({ value: '', error: false, helper: '' });
+        setSocialReason({ value: constants.SOCIAL_REASON.particular, error: false, helper: '' });
         setSex({ value: '', error: false, helper: '' });
         setPhone({ value: '', error: false, helper: '' });
         setFax({ value: '', error: false, helper: '' });
         setEmail({ value: '', error: false, helper: '' });
         setLocation({ value: '', error: false, helper: '' });
         setPayAmount({ value: '', error: false, helper: '' });
-        setPayMode({ value: '', error: false, helper: '' });
+        setPayMode({ value: constants.PAY_MODE.banck, error: false, helper: '' });
         setBanck({ value: '', error: false, helper: '' });
         setBanckRef({ value: '', error: false, helper: '' });
         setRef1({ value: '', error: false, helper: '' });
@@ -245,8 +249,15 @@ export const BeneficierDetails = (props) => {
     return (
         <div className="p-10 scroll-y h-100">
             <div className="row m-0">
-                <div className="col-6 text-default p-10">Entreprise</div>
-                <div className="col-6 text-default p-10">Particuler</div>
+                {constants.arrays.social_reason.map((item) => (
+                    <div className="col-6 text-default p-10" key={item.value}>
+                        <RadioButton
+                            label={item.label[lang]}
+                            checked={social_reason.value === item.value}
+                            onClick={() => setSocialReason({ value: item.value, error: false, helper: '' })}
+                        />
+                    </div>
+                ))}
             </div>
 
             <div className="row m-0">
@@ -262,8 +273,16 @@ export const BeneficierDetails = (props) => {
                 </div>
                 <div className="col-12">
                     <TextInput
-                        label={Lang.first_name[lang]}
-                        placeholder={Lang.first_name[lang]}
+                        label={
+                            social_reason.value === constants.SOCIAL_REASON.particular
+                                ? Lang.first_name[lang]
+                                : Lang.abreviation[lang]
+                        }
+                        placeholder={
+                            social_reason.value === constants.SOCIAL_REASON.particular
+                                ? Lang.first_name[lang]
+                                : Lang.abreviation[lang]
+                        }
                         value={first_name.value}
                         error={first_name.error}
                         helperText={first_name.helper}
@@ -272,10 +291,21 @@ export const BeneficierDetails = (props) => {
                 </div>
             </div>
 
-            <div className="row m-0">
-                <div className="col-6 text-default p-10">Masculin</div>
-                <div className="col-6 text-default p-10">Feminin</div>
-            </div>
+            {social_reason.value === constants.SOCIAL_REASON.particular ? (
+                <div className="row m-0">
+                    {constants.arrays.civilities.map((item) => (
+                        <div className="col-6 text-default p-10" key={item.value}>
+                            <RadioButton
+                                label={item.label[lang]}
+                                checked={sex.value === item.value}
+                                onClick={() => setSex({ value: item.value, error: false, helper: '' })}
+                            />
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <></>
+            )}
 
             <div className="row m-0">
                 <div className="col-6">
@@ -349,79 +379,98 @@ export const BeneficierDetails = (props) => {
             </div>
 
             <div className="row m-0">
-                <div className="col-6 text-default p-10">{Lang.bank[lang]}</div>
-                <div className="col-6 text-default p-10">Cheque</div>
+                {constants.arrays.pay_modes.map((item) => (
+                    <div className="col-6 text-default p-10" key={item.value}>
+                        <RadioButton
+                            label={item.label[lang]}
+                            checked={pay_mode.value === item.value}
+                            onClick={() => setPayMode({ value: item.value, error: false, helper: '' })}
+                        />
+                    </div>
+                ))}
             </div>
 
-            <div className="row m-0">
-                <div className="col-12">
-                    <TextInput
-                        placeholder={Lang.select_bank[lang]}
-                        label={Lang.select_bank[lang]}
-                        value={banck.value}
-                        error={banck.error}
-                        helperText={banck.helper}
-                        onValueChange={(val) => setBanck({ value: val, error: false, helper: '' })}
-                    />
+            {pay_mode.value === constants.PAY_MODE.banck ? (
+                <div className="row m-0">
+                    <div className="col-12">
+                        <TextInput
+                            placeholder={Lang.select_bank[lang]}
+                            label={Lang.select_bank[lang]}
+                            value={banck.value}
+                            error={banck.error}
+                            helperText={banck.helper}
+                            onValueChange={(val) => setBanck({ value: val, error: false, helper: '' })}
+                        />
+                    </div>
                 </div>
+            ) : (
+                <></>
+            )}
 
-                <div className="col-12">
-                    <TextInput
-                        placeholder={Lang.banck_ref[lang]}
-                        label={Lang.banck_ref[lang]}
-                        value={banck_ref.value}
-                        error={banck_ref.error}
-                        helperText={banck_ref.helper}
-                        onValueChange={(val) => setBanckRef({ value: val, error: false, helper: '' })}
-                    />
-                </div>
-            </div>
+            {pay_mode.value === constants.PAY_MODE.check ? (
+                <>
+                    <div className="row m-0">
+                        <div className="col-12">
+                            <TextInput
+                                placeholder={Lang.banck_ref[lang]}
+                                label={Lang.banck_ref[lang]}
+                                value={banck_ref.value}
+                                error={banck_ref.error}
+                                helperText={banck_ref.helper}
+                                onValueChange={(val) => setBanckRef({ value: val, error: false, helper: '' })}
+                            />
+                        </div>
+                    </div>
 
-            <div className="row m-0">
-                <div className="col-6 col-xl-3">
-                    <TextInput
-                        placeholder={'Ref 1'}
-                        label={'Ref 1'}
-                        value={ref1.value}
-                        error={ref1.error}
-                        helperText={ref1.helper}
-                        onValueChange={(val) => setRef1({ value: val, error: false, helper: '' })}
-                    />
-                </div>
+                    <div className="row m-0">
+                        <div className="col-6 col-xl-3">
+                            <TextInput
+                                placeholder={'Ref 1'}
+                                label={'Ref 1'}
+                                value={ref1.value}
+                                error={ref1.error}
+                                helperText={ref1.helper}
+                                onValueChange={(val) => setRef1({ value: val, error: false, helper: '' })}
+                            />
+                        </div>
 
-                <div className="col-6 col-xl-3">
-                    <TextInput
-                        placeholder={'Ref 2'}
-                        label={'Ref 2'}
-                        value={ref2.value}
-                        error={ref2.error}
-                        helperText={ref2.helper}
-                        onValueChange={(val) => setRef2({ value: val, error: false, helper: '' })}
-                    />
-                </div>
+                        <div className="col-6 col-xl-3">
+                            <TextInput
+                                placeholder={'Ref 2'}
+                                label={'Ref 2'}
+                                value={ref2.value}
+                                error={ref2.error}
+                                helperText={ref2.helper}
+                                onValueChange={(val) => setRef2({ value: val, error: false, helper: '' })}
+                            />
+                        </div>
 
-                <div className="col-6 col-xl-3">
-                    <TextInput
-                        placeholder={'Ref 3'}
-                        label={'Ref 3'}
-                        value={ref3.value}
-                        error={ref3.error}
-                        helperText={ref3.helper}
-                        onValueChange={(val) => setRef3({ value: val, error: false, helper: '' })}
-                    />
-                </div>
+                        <div className="col-6 col-xl-3">
+                            <TextInput
+                                placeholder={'Ref 3'}
+                                label={'Ref 3'}
+                                value={ref3.value}
+                                error={ref3.error}
+                                helperText={ref3.helper}
+                                onValueChange={(val) => setRef3({ value: val, error: false, helper: '' })}
+                            />
+                        </div>
 
-                <div className="col-6 col-xl-3">
-                    <TextInput
-                        placeholder={'Ref 4'}
-                        label={'Ref 4'}
-                        value={ref4.value}
-                        error={ref4.error}
-                        helperText={ref4.helper}
-                        onValueChange={(val) => setRef4({ value: val, error: false, helper: '' })}
-                    />
-                </div>
-            </div>
+                        <div className="col-6 col-xl-3">
+                            <TextInput
+                                placeholder={'Ref 4'}
+                                label={'Ref 4'}
+                                value={ref4.value}
+                                error={ref4.error}
+                                helperText={ref4.helper}
+                                onValueChange={(val) => setRef4({ value: val, error: false, helper: '' })}
+                            />
+                        </div>
+                    </div>
+                </>
+            ) : (
+                <></>
+            )}
 
             <div className="row m-0 ">
                 <div className="d-flex content-between items-center py-10">

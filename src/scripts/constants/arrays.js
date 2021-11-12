@@ -6,7 +6,7 @@ const objects = require('./objects');
 module.exports = {
     social_reason: [
         { value: objects.SOCIAL_REASON.particular, label: { fr: 'Particulier', en: 'Particular' } },
-        { value: objects.SOCIAL_REASON.company, label: { fr: 'Particulier', en: 'Particular' } },
+        { value: objects.SOCIAL_REASON.company, label: { fr: 'Entreprise', en: 'Company' } },
     ],
     civilities: [
         { value: objects.CIVILITY.male, label: { fr: 'Homme', en: 'Man' } },

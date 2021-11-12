@@ -251,4 +251,24 @@ export const Lang = {
         fr: 'Montant avancé',
         en: 'Advanced amount',
     },
+    man: {
+        fr: 'Homme',
+        en: 'Man',
+    },
+    woman: {
+        fr: 'Femme',
+        en: 'Woman',
+    },
+    company: {
+        fr: 'Entreprise',
+        en: 'Company',
+    },
+    particular: {
+        fr: 'Particuler',
+        en: 'Particlar',
+    },
+    abreviation: {
+        fr: 'Abréviation',
+        en: 'Abbreviation',
+    },
 };
