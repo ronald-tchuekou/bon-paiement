@@ -15,6 +15,30 @@ export const Lang = {
         fr: 'Mouvement',
         en: 'Movement',
     },
+    bank_form: {
+        fr: 'Formulaire de gestion des banques',
+        en: 'Bank form manager',
+    },
+    set_email: {
+        fr: "Indiquer l'adresse e-mail",
+        en: 'Set e-mail address',
+    },
+    set_phone: {
+        fr: "Indiquer le téléphone",
+        en: "Set phone number"
+    },
+    set_fax: {
+        fr: "indiquer le fax",
+        en: "Set fax"
+    },
+    banck_list: {
+        fr: 'Liste de tous les banques',
+        en: 'banks list',
+    },
+    search_bank: {
+        fr: 'Rechercher une banque...',
+        en: 'Search a bank...',
+    },
     confirm_password: {
         fr: 'Confirmation',
         en: 'Confirmation',
@@ -282,6 +306,10 @@ export const Lang = {
     bon_type_form: {
         fr: 'Formulaire de gestion des types de bon',
         en: 'Form for managing voucher types',
+    },
+    search_bon_type: {
+        fr: 'Rechercher un type de bon...',
+        en: 'Search voucher type...',
     },
     libelle: {
         fr: 'Libelle',

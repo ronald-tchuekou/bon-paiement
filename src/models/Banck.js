@@ -27,6 +27,10 @@ export default class Banck {
      * @type string
      */
     user_id;
+    /**
+     * @type Date
+     */
+    date;
 
     constructor(
         code = undefined,
@@ -35,7 +39,8 @@ export default class Banck {
         phone = undefined,
         email = undefined,
         fax = undefined,
-        user_id = undefined
+        user_id = undefined,
+        date = new Date()
     ) {
         this.code = code;
         this.abreviation = abreviation;
@@ -44,6 +49,7 @@ export default class Banck {
         this.email = email;
         this.fax = fax;
         this.user_id = user_id;
+        this.date = date;
     }
 
     /**

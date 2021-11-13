@@ -4,6 +4,7 @@ import DetailMovement from '../models/DetailMovement';
 import Dotation from '../models/Dotation';
 import Movement from '../models/Movement';
 import SlipType from '../models/SlipType';
+import Banck from '../models/Banck';
 
 /**
  * @callback callback
@@ -29,6 +30,22 @@ export const SlipTypesContext = React.createContext({
 export const CurrentSlipTypeContext = React.createContext({
     currentSlipType: new SlipType(),
     setCurrentSlipType: () => {},
+});
+
+/**
+ * @type React.Context<{
+        bancks: [Banck];
+        setBancks: callback;
+    }>
+ */
+export const BancksContext = React.createContext({
+    bancks: [],
+    setBancks: () => {},
+});
+
+export const CurrentBanckContext = React.createContext({
+    currentBanck: new Banck(),
+    setCurrentBanck: () => {},
 });
 
 /**

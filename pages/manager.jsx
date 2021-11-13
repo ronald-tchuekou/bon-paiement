@@ -7,10 +7,12 @@ import { HeaderBar } from '../src/components/header_bar';
 import { Tab, TabContent, TabContentItem, TabHeader, TabHeaderItem } from '../src/base/tabs';
 import { SlipTypes } from '../src/components/manager/slip_type';
 import { Dotations } from '../src/components/manager/dotations';
-import { Banks } from '../src/components/manager/Banks';
+import { Banks } from '../src/components/manager/banks';
 
 export default function Manager() {
     const slip_type_ref = React.useRef(null);
+    const dotations_ref = React.useRef(null);
+    const banks_ref = React.useRef(null);
 
     const [lang, setLang] = React.useState('fr');
     const [current_tab, setCurrentTab] = React.useState(1);
@@ -49,14 +51,20 @@ export default function Manager() {
                                     </TabHeaderItem>
                                     <TabHeaderItem
                                         active={current_tab === 2}
-                                        onClick={() => setCurrentTab(2)}
+                                        onClick={() => {
+                                            if (current_tab !== 2) dotations_ref.current.refreshContent();
+                                            setCurrentTab(2);
+                                        }}
                                         title={Lang.dotation[lang]}
                                     >
                                         <i className="fi fi-rr-credit-card"></i>
                                     </TabHeaderItem>
                                     <TabHeaderItem
                                         active={current_tab === 3}
-                                        onClick={() => setCurrentTab(3)}
+                                        onClick={() => {
+                                            if (current_tab !== 3) banks_ref.current.refreshContent();
+                                            setCurrentTab(3);
+                                        }}
                                         title={Lang.bank[lang]}
                                     >
                                         <i className="fi fi-rr-bank"></i>
@@ -67,10 +75,10 @@ export default function Manager() {
                                         <SlipTypes ref={slip_type_ref} />
                                     </TabContentItem>
                                     <TabContentItem active={current_tab === 2}>
-                                        <Dotations />
+                                        <Dotations ref={dotations_ref} />
                                     </TabContentItem>
                                     <TabContentItem active={current_tab === 3}>
-                                        <Banks />
+                                        <Banks ref={banks_ref} />
                                     </TabContentItem>
                                 </TabContent>
                             </Tab>

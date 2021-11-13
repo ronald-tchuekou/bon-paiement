@@ -1,40 +1,34 @@
 import React from 'react';
 import { SectionList, SectionListContent, SectionListHeader, SectionListItem } from '../../../base/section-list';
-import { CurrentSlipTypeContext, LangContext, SlipTypesContext } from '../../../context';
+import { CurrentDotationContext, LangContext, DotationsContext } from '../../../context';
 import { Lang } from '../../../lang';
 import { IconButton } from '../../../base/buttons';
-import SlipType from '../../../models/SlipType';
+import Dotation from '../../../models/Dotation';
 
-export const SlipTypeList = React.forwardRef(
+export const DotationList = React.forwardRef(
     (props, ref) => {
         const content_ref = React.useRef(null);
 
         const { lang } = React.useContext(LangContext);
 
-        const { slipTypes, setSlipTypes } = React.useContext(SlipTypesContext);
-        const { currentSlipType, setCurrentSlipType } = React.useContext(CurrentSlipTypeContext);
+        const { dotations, setDotations } = React.useContext(DotationsContext);
+        const { currentDotation, setCurrentDotation } = React.useContext(CurrentDotationContext);
 
-        React.useEffect(() => {
-            setTimeout(() => {
-                getSlipTypes();
-            }, 300);
-        }, []);
-
-        function getSlipTypes() {
+        function getDotations() {
             content_ref.current.showLoader();
-            new SlipType().getAll({
-                success: (content) => setSlipTypes(content),
+            new Dotation().getAll({
+                success: (content) => setDotations(content),
                 error: (e) => console.error(e),
                 final: () => content_ref.current.dismissLoader(),
             });
         }
 
         function handleItemClick(item) {
-            setCurrentSlipType(item);
+            setCurrentDotation(item);
         }
 
         React.useImperativeHandle(ref, () => ({
-            getContent: getSlipTypes,
+            getContent: getDotations,
         }));
 
         return (
@@ -43,24 +37,24 @@ export const SlipTypeList = React.forwardRef(
                     search
                     onChange={(value) => {}}
                     onValidate={(value) => alert(value)}
-                    searchPlaceHolder={Lang.search_bon_type[lang]}
-                    title={Lang.bon_type_list[lang]}
+                    searchPlaceHolder={Lang.search_dotation[lang]}
+                    title={Lang.dotation_list[lang]}
                 >
-                    <IconButton onClick={() => setCurrentSlipType(new SlipType())} color={'warning'}>
+                    <IconButton onClick={() => setCurrentDotation(new Dotation())} color={'warning'}>
                         <i className="fi fi-rr-plus-small t-30"></i>
                     </IconButton>
                 </SectionListHeader>
                 <SectionListContent ref={content_ref}>
-                    {slipTypes.map(
+                    {dotations.map(
                         /**
-                         * @param {SlipType} item
+                         * @param {Dotation} item
                          * @returns any
                          */
                         (item) => (
                             <SectionListItem
                                 withOptions
                                 onDelete={() => alert('Deletion is not impelement!')}
-                                selected={currentSlipType.code === item.code}
+                                selected={currentDotation.code === item.code}
                                 key={item.code}
                             >
                                 <div
@@ -69,14 +63,15 @@ export const SlipTypeList = React.forwardRef(
                                 >
                                     <div>
                                         <div className="text-default_gray">
-                                            {item.libelle} <i className="fi fi-rr-minus-small"></i>
-                                            {item.abreviation}
+                                            {item.slipType.libelle} <i className="fi fi-rr-minus-small"></i>
+                                            {item.slipType.abreviation}
                                         </div>
-                                        <small className="text-default">
+                                        <div className="text-primary t-15">{item.amount}&nbsp;XFA</div>
+                                        <small className="text-warning">
                                             {Lang.add_on[lang]}&nbsp;{item.date.toLocaleDateString()}
                                         </small>
                                     </div>
-                                    {currentSlipType.code === item.code ? (
+                                    {currentDotation.code === item.code ? (
                                         <div className="text-center text-primary">
                                             <i className="fi fi-rr-angle-small-right t-25"></i>
                                         </div>
@@ -91,5 +86,5 @@ export const SlipTypeList = React.forwardRef(
             </SectionList>
         );
     },
-    { displayNema: 'SlipTypeList' }
+    { displayNema: 'DotationList' }
 );

@@ -1,40 +1,40 @@
 import React from 'react';
 import { SectionList, SectionListContent, SectionListHeader, SectionListItem } from '../../../base/section-list';
-import { CurrentSlipTypeContext, LangContext, SlipTypesContext } from '../../../context';
+import { CurrentBanckContext, LangContext, BancksContext } from '../../../context';
 import { Lang } from '../../../lang';
 import { IconButton } from '../../../base/buttons';
-import SlipType from '../../../models/SlipType';
+import Banck from '../../../models/Banck';
 
-export const SlipTypeList = React.forwardRef(
+export const BanckList = React.forwardRef(
     (props, ref) => {
         const content_ref = React.useRef(null);
 
         const { lang } = React.useContext(LangContext);
 
-        const { slipTypes, setSlipTypes } = React.useContext(SlipTypesContext);
-        const { currentSlipType, setCurrentSlipType } = React.useContext(CurrentSlipTypeContext);
+        const { bancks, setBancks } = React.useContext(BancksContext);
+        const { currentBanck, setCurrentBanck } = React.useContext(CurrentBanckContext);
 
         React.useEffect(() => {
             setTimeout(() => {
-                getSlipTypes();
+                getBancks();
             }, 300);
         }, []);
 
-        function getSlipTypes() {
+        function getBancks() {
             content_ref.current.showLoader();
-            new SlipType().getAll({
-                success: (content) => setSlipTypes(content),
+            new Banck().getAll({
+                success: (content) => setBancks(content),
                 error: (e) => console.error(e),
                 final: () => content_ref.current.dismissLoader(),
             });
         }
 
         function handleItemClick(item) {
-            setCurrentSlipType(item);
+            setCurrentBanck(item);
         }
 
         React.useImperativeHandle(ref, () => ({
-            getContent: getSlipTypes,
+            getContent: getBancks,
         }));
 
         return (
@@ -43,24 +43,24 @@ export const SlipTypeList = React.forwardRef(
                     search
                     onChange={(value) => {}}
                     onValidate={(value) => alert(value)}
-                    searchPlaceHolder={Lang.search_bon_type[lang]}
-                    title={Lang.bon_type_list[lang]}
+                    searchPlaceHolder={Lang.search_bank[lang]}
+                    title={Lang.banck_list[lang]}
                 >
-                    <IconButton onClick={() => setCurrentSlipType(new SlipType())} color={'warning'}>
+                    <IconButton onClick={() => setCurrentBanck(new Banck())} color={'warning'}>
                         <i className="fi fi-rr-plus-small t-30"></i>
                     </IconButton>
                 </SectionListHeader>
                 <SectionListContent ref={content_ref}>
-                    {slipTypes.map(
+                    {bancks.map(
                         /**
-                         * @param {SlipType} item
+                         * @param {Banck} item
                          * @returns any
                          */
                         (item) => (
                             <SectionListItem
                                 withOptions
                                 onDelete={() => alert('Deletion is not impelement!')}
-                                selected={currentSlipType.code === item.code}
+                                selected={currentBanck.code === item.code}
                                 key={item.code}
                             >
                                 <div
@@ -72,11 +72,12 @@ export const SlipTypeList = React.forwardRef(
                                             {item.libelle} <i className="fi fi-rr-minus-small"></i>
                                             {item.abreviation}
                                         </div>
-                                        <small className="text-default">
+                                        <div className="text-default t-14">{item.email}</div>
+                                        <small className="text-warning">
                                             {Lang.add_on[lang]}&nbsp;{item.date.toLocaleDateString()}
                                         </small>
                                     </div>
-                                    {currentSlipType.code === item.code ? (
+                                    {currentBanck.code === item.code ? (
                                         <div className="text-center text-primary">
                                             <i className="fi fi-rr-angle-small-right t-25"></i>
                                         </div>
@@ -91,5 +92,5 @@ export const SlipTypeList = React.forwardRef(
             </SectionList>
         );
     },
-    { displayNema: 'SlipTypeList' }
+    { displayNema: 'BanckList' }
 );
