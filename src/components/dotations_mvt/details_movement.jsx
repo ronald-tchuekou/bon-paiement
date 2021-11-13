@@ -14,7 +14,6 @@ import { SectionList, SectionListContent, SectionListHeader } from '../../base/s
 import DetailMovement from '../../models/DetailMovement';
 import constants from '../../scripts/constants';
 import { RadioButton } from '../../base/radio_buttons';
-import { social_reason } from '../../scripts/constants/arrays';
 
 export const DetailsMovement = (props) => {
     const drawer_ref = React.useRef(null);

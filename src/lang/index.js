@@ -15,6 +15,22 @@ export const Lang = {
         fr: 'Mouvement',
         en: 'Movement',
     },
+    my_profile: {
+        fr: 'Mon Profile',
+        en: 'My Profile',
+    },
+    profiles: {
+        fr: 'Profiles',
+        en: 'Profiles',
+    },
+    users: {
+        fr: 'Utilisateurs',
+        en: 'Users',
+    },
+    components: {
+        fr: 'Composants',
+        en: 'Components',
+    },
     bank_form: {
         fr: 'Formulaire de gestion des banques',
         en: 'Bank form manager',
@@ -24,12 +40,12 @@ export const Lang = {
         en: 'Set e-mail address',
     },
     set_phone: {
-        fr: "Indiquer le téléphone",
-        en: "Set phone number"
+        fr: 'Indiquer le téléphone',
+        en: 'Set phone number',
     },
     set_fax: {
-        fr: "indiquer le fax",
-        en: "Set fax"
+        fr: 'indiquer le fax',
+        en: 'Set fax',
     },
     banck_list: {
         fr: 'Liste de tous les banques',
