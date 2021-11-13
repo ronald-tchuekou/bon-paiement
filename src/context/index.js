@@ -3,6 +3,12 @@ import Beneficier from '../models/Beneficier';
 import DetailMovement from '../models/DetailMovement';
 import Dotation from '../models/Dotation';
 import Movement from '../models/Movement';
+import SlipType from '../models/SlipType';
+
+/**
+ * @callback callback
+ * @param {array<object>} list
+ */
 
 export const LangContext = React.createContext({
     lang: 'fr',
@@ -11,7 +17,23 @@ export const LangContext = React.createContext({
 
 /**
  * @type React.Context<{
-        dotations: array<Dotation>;
+        slipTypes: [SlipType];
+        setSlipTypes: callback;
+    }>
+ */
+export const SlipTypesContext = React.createContext({
+    slipTypes: [],
+    setSlipTypes: () => {},
+});
+
+export const CurrentSlipTypeContext = React.createContext({
+    currentSlipType: new SlipType(),
+    setCurrentSlipType: () => {},
+});
+
+/**
+ * @type React.Context<{
+        dotations: [Dotation];
         setDotations: callback;
     }>
  */
@@ -27,7 +49,7 @@ export const CurrentDotationContext = React.createContext({
 
 /**
  * @type React.Context<{
-        movements: array<Movement>;
+        movements: [Movement];
         setMovements: callback;
     }>
  */
@@ -43,7 +65,7 @@ export const CurrentMovementContext = React.createContext({
 
 /**
  * @type React.Context<{
-        detailMovements: array<DetailMovement>;
+        detailMovements: [DetailMovement];
         setDetailMovements: callback;
     }>
  */

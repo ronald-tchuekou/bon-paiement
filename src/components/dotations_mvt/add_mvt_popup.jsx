@@ -62,19 +62,21 @@ export const AddMVTPopup = React.forwardRef(
                     <div style={{ width: 600 }} className="p-10">
                         <div className="text-primary t-18">{Lang.info_about_dotation[lang]}</div>
                         <table className="my-15">
-                            <tr className="mb-5">
-                                <td className="px-5 py-2">
-                                    <span>{Lang.bon_type[lang]}</span>&nbsp; : &nbsp;
-                                </td>
-                                <td className="text-default_dark px-5 py-2">Mandragora Mansion - MM</td>
-                            </tr>
+                            <tbody>
+                                <tr className="mb-5">
+                                    <td className="px-5 py-2">
+                                        <span>{Lang.bon_type[lang]}</span>&nbsp; : &nbsp;
+                                    </td>
+                                    <td className="text-default_dark px-5 py-2">Mandragora Mansion - MM</td>
+                                </tr>
 
-                            <tr>
-                                <td className="px-5 py-2">
-                                    <span>{Lang.bon_amount[lang]}</span>&nbsp; : &nbsp;
-                                </td>
-                                <td className="px-5 py-2 text-default_dark">1,000,000 XFA</td>
-                            </tr>
+                                <tr>
+                                    <td className="px-5 py-2">
+                                        <span>{Lang.bon_amount[lang]}</span>&nbsp; : &nbsp;
+                                    </td>
+                                    <td className="px-5 py-2 text-default_dark">1,000,000 XFA</td>
+                                </tr>
+                            </tbody>
                         </table>
 
                         <div className="text-primary t-18">{Lang.amount_of_the_dotation[lang]}</div>

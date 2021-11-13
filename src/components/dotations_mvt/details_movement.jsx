@@ -472,7 +472,8 @@ export const BeneficierDetails = (props) => {
                 <></>
             )}
 
-            <div className="row m-0 ">
+            <div className="m-0 ">
+                <div></div>
                 <div className="d-flex content-between items-center py-10">
                     <Button color="danger" onClick={handleCancel}>
                         {Lang.cancel[lang]}

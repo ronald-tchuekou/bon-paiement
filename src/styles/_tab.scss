@@ -1,0 +1,85 @@
+.tabs__wrapper{
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    .tabs__header{
+        display: flex;
+        flex-direction: row;
+        height: 50px;
+        min-height: 50px;
+        max-height: 50px;
+        align-items: center;
+        border-bottom: 1px solid $divider_color;
+    }
+
+    .tabs__header-item{
+        padding: 10px 10px 0 10px;
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: .3s;
+        &:hover{
+            cursor: pointer;
+            background-color: transparentize($color: $primary_color, $amount: 0.9);
+            .tabs__header-title{
+                color: $defualt_text_color_gray;
+            }
+            &.active{
+                .tabs__header-title{
+                    color: $primary_color;
+                }
+            }
+        }
+
+        &.active{
+            .tabs__header-title{
+                color: $primary_color;
+            }
+            .tabs__header-indicator{
+                background: $primary_color;
+            }
+        }
+
+        .tabs__header-title{
+            padding: 7px 10px;
+            color: $default_text_color;
+            font-weight: 400;
+        }
+
+        .tabs__header-indicator{
+            width: 60%;
+            height: 3px;
+            border-radius: 30px;
+            background: transparent;
+            transition: .3s;
+        }
+    }
+
+    .tabs__content{
+        position: relative;
+        height: calc(100% - 51px);
+        min-height: calc(100% - 51px);
+        max-height: calc(100% - 51px);
+        overflow: hidden;
+
+        .tabs__content-item{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            transition: transform .3s, opacity .5s;
+            transform-origin: top left;
+            transform: translateY(-100%);
+            opacity: 0;
+            &.active{
+                transition-delay: .3s;
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    }
+}

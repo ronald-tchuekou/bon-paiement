@@ -24,7 +24,7 @@ import { AddMVTPopup } from '../src/components/dotations_mvt/add_mvt_popup';
 export default function DotationMvt() {
     const add_popup_ref = React.useRef(null);
 
-    const [lang, setLang] = React.useState('fr');
+    const [lang, setLang] = React.useState('en');
     const [dotations, setDotations] = React.useState([]);
     const [currentDotation, setCurrentDotation] = React.useState(new Dotation());
     const [movements, setMovements] = React.useState([]);

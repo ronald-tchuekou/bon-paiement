@@ -14,10 +14,11 @@
     &:after {
         content: '';
         display: block;
-    }
-    &:before {
         clear: both;
     }
+    // &:before {
+    //     clear: both;
+    // }
     & {
         zoom: 1;
     }

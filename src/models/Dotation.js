@@ -21,19 +21,25 @@ export default class Dotation {
      * @type string
      */
     user_id;
+    /**
+     * @type Date
+     */
+    date;
 
     constructor(
         code = undefined,
         slipType = new SlipType(),
         amount = undefined,
         code_parent = undefined,
-        user_id = undefined
+        user_id = undefined,
+        date = new Date()
     ) {
         this.code = code;
         this.slipType = slipType;
         this.amount = amount;
         this.code_parent = code_parent;
         this.user_id = user_id;
+        this.date = date;
     }
 
     /**

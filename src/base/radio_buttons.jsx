@@ -6,7 +6,7 @@ export const RadioButton = (props) => {
     const { label, onClick, checked } = props;
     return (
         <div className="radio-btn__wrapper">
-            <input ref={input_ref} type="radio" checked={checked} />
+            <input ref={input_ref} type="radio" checked={checked} readOnly />
             <div
                 onClick={() => {
                     onClick();

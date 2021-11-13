@@ -127,12 +127,20 @@ export const SectionListItem = (props) => {
             {props.children}
             {withOptions ? (
                 <div className="options">
-                    <IconButton onClick={onEdit} color="white">
-                        <i className="fi fi-rr-pencil text-primary"></i>
-                    </IconButton>
-                    <IconButton onClick={onDelete} color="white">
-                        <i className="fi fi-rr-trash text-danger"></i>
-                    </IconButton>
+                    {onEdit ? (
+                        <IconButton onClick={onEdit} color="white">
+                            <i className="fi fi-rr-pencil text-primary"></i>
+                        </IconButton>
+                    ) : (
+                        <></>
+                    )}
+                    {onDelete ? (
+                        <IconButton onClick={onDelete} color="white">
+                            <i className="fi fi-rr-trash text-danger"></i>
+                        </IconButton>
+                    ) : (
+                        <></>
+                    )}
                 </div>
             ) : (
                 <></>
@@ -151,6 +159,6 @@ SectionListItem.propTypes = {
 SectionListItem.defaultProps = {
     selected: false,
     withOptions: false,
-    onDelete: () => {},
-    onEdit: () => {},
+    onDelete: undefined,
+    onEdit: undefined,
 };

@@ -271,4 +271,28 @@ export const Lang = {
         fr: 'Abréviation',
         en: 'Abbreviation',
     },
+    bon_type_list: {
+        fr: 'Liste des types de bon',
+        en: 'List of voucher typs',
+    },
+    add_on: {
+        fr: 'Ajouté le',
+        en: 'Added on',
+    },
+    bon_type_form: {
+        fr: 'Formulaire de gestion des types de bon',
+        en: 'Form for managing voucher types',
+    },
+    libelle: {
+        fr: 'Libelle',
+        en: 'Label',
+    },
+    set_libelle: {
+        fr: 'Indiquer un libelle !',
+        en: 'Set a label!',
+    },
+    set_abreviation: {
+        fr: "Inquer l'abreviation !",
+        en: 'Set an abbreviation!',
+    },
 };
