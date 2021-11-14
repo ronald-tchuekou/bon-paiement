@@ -112,8 +112,8 @@ export const SectionListContent = React.forwardRef(
         }));
 
         return (
-            <div ref={loader_ref} className={`section-list__content ${className}`}>
-                {props.children}
+            <div className="section-list__content__wrapper" ref={loader_ref}>
+                <div className={`section-list__content ${className}`}>{props.children}</div>
             </div>
         );
     },

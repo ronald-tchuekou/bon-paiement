@@ -15,6 +15,30 @@ export const Lang = {
         fr: 'Mouvement',
         en: 'Movement',
     },
+    profile_form: {
+        fr: 'Formulaire de gestion des profiles',
+        en: 'Profiles form manager',
+    },
+    profile_list: {
+        fr: 'Liste de tous les profiles',
+        en: 'List of profiles',
+    },
+    search_profile: {
+        fr: 'Rechercher un profile...',
+        en: 'Search a profile...',
+    },
+    manage_rules_of_profile: {
+        fr: 'Gestion des droits du profile',
+        en: 'Manage rules of the profile',
+    },
+    component_form: {
+        fr: 'Formulaire de gestion des composants',
+        en: 'Components form manager',
+    },
+    component_list: {
+        fr: 'Liste de tous les composants',
+        en: 'List of components',
+    },
     my_profile: {
         fr: 'Mon Profile',
         en: 'My Profile',
@@ -54,6 +78,10 @@ export const Lang = {
     search_bank: {
         fr: 'Rechercher une banque...',
         en: 'Search a bank...',
+    },
+    search_component: {
+        fr: 'Rechercher un compsant...',
+        en: 'Search a component...',
     },
     confirm_password: {
         fr: 'Confirmation',
