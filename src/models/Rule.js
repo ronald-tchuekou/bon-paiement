@@ -1,26 +1,31 @@
-import SlipType from './SlipType';
+import { Component } from 'react';
+import Composant from './Composant';
 
-export default class Dotation {
+export default class Rule {
     /**
      * @type string
      */
     code;
     /**
-     * @type SlipType
-     */
-    slipType;
-    /**
-     * @type number
-     */
-    amount;
-    /**
      * @type string
      */
-    code_parent;
+    libelle;
     /**
-     * @type string
+     * @type boolean
      */
-    user_id;
+    read;
+    /**
+     * @type boolean
+     */
+    write;
+    /**
+     * @type boolean
+     */
+    delete;
+    /**
+     * @type Composant
+     */
+    composant;
     /**
      * @type Date
      */
@@ -28,17 +33,19 @@ export default class Dotation {
 
     constructor(
         code = undefined,
-        slipType = new SlipType(),
-        amount = undefined,
-        code_parent = undefined,
-        user_id = undefined,
+        libelle = undefined,
+        read = undefined,
+        write = undefined,
+        _delete = undefined,
+        composant = new Component(),
         date = new Date()
     ) {
         this.code = code;
-        this.slipType = slipType;
-        this.amount = amount;
-        this.code_parent = code_parent;
-        this.user_id = user_id;
+        this.libelle = libelle;
+        this.read = read;
+        this.write = write;
+        this.delete = _delete;
+        this.composant = composant;
         this.date = date;
     }
 
@@ -53,15 +60,16 @@ export default class Dotation {
             try {
                 setTimeout(() => {
                     let content = [];
-                    for (let i = 1; i <= 20; i++) {
-                        let dotation = new Dotation(
-                            i + '',
-                            new SlipType(i + '', 'Mandragora Mansion', 'MM', '', ''),
-                            1000000,
-                            '',
-                            ''
+                    for (let i = 1; i <= 10; i++) {
+                        let composant = new Rule(
+                            i + 'lLKJDFOJZF',
+                            'Rule' + i,
+                            i % 3 === 0,
+                            i % 2 === 0,
+                            i % 5 === 0,
+                            new Composant('ComponentCode' + i, 'Component' + i)
                         );
-                        content.push(dotation);
+                        content.push(composant);
                     }
                     resolve(content);
                 }, 1000);
@@ -84,7 +92,7 @@ export default class Dotation {
         new Promise((resolve, except) => {
             try {
                 setTimeout(() => {
-                    resolve({ code: this.slipType.libelle + ' is saved' });
+                    resolve({ code: this.libelle + ' is saved' });
                 }, 1000);
             } catch (e) {
                 except(e);
@@ -105,7 +113,7 @@ export default class Dotation {
         new Promise((resolve, except) => {
             try {
                 setTimeout(() => {
-                    resolve({ code: this.slipType.libelle + ' is updated' });
+                    resolve({ code: this.libelle + ' is updated' });
                 }, 1000);
             } catch (e) {
                 except(e);
@@ -126,7 +134,7 @@ export default class Dotation {
         new Promise((resolve, except) => {
             try {
                 setTimeout(() => {
-                    resolve({ code: this.slipType.libelle + ' is deleted' });
+                    resolve({ code: this.libelle + ' is deleted' });
                 }, 1000);
             } catch (e) {
                 except(e);

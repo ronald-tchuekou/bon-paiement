@@ -223,6 +223,7 @@ DRAWER CONTENT
     min-height: 100vh;
     max-height: 100vh;
     background: $white_color;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -301,8 +302,8 @@ DRAWER CONTENT
             position: absolute;
             top: 25%;
             left: calc(100% + 10px);
-            color: $default_text_color_dark;
-            background: $white_color;
+            color: $white_color;
+            background: $defualt_text_color_gray;
             padding: 5px 9px;
             white-space: nowrap;
             border-radius: 5px;
@@ -574,9 +575,13 @@ img {
             }
         }
     }
-    .section-list__content {
+    .section-list__content__wrapper{
         max-height: calc(100% - 51px);
         height: calc(100% - 51px);
+    }
+    .section-list__content {
+        max-height: 100%;
+        height: 100%;
         overflow-x: hidden;
         overflow-y: auto;
         padding: 8px;
@@ -691,7 +696,7 @@ img {
                     background: rgba(0, 0, 0, 0.09);
                 }
                 &:hover {
-                    cursor: pointer;
+                    cursor: default;
                     background: rgba(0, 0, 0, 0.08);
                 }
             }

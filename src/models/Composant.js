@@ -1,44 +1,20 @@
-import SlipType from './SlipType';
-
-export default class Dotation {
+export default class Composant {
     /**
      * @type string
      */
     code;
     /**
-     * @type SlipType
-     */
-    slipType;
-    /**
-     * @type number
-     */
-    amount;
-    /**
      * @type string
      */
-    code_parent;
-    /**
-     * @type string
-     */
-    user_id;
+    libelle;
     /**
      * @type Date
      */
     date;
 
-    constructor(
-        code = undefined,
-        slipType = new SlipType(),
-        amount = undefined,
-        code_parent = undefined,
-        user_id = undefined,
-        date = new Date()
-    ) {
+    constructor(code = undefined, libelle = undefined, date = new Date()) {
         this.code = code;
-        this.slipType = slipType;
-        this.amount = amount;
-        this.code_parent = code_parent;
-        this.user_id = user_id;
+        this.libelle = libelle;
         this.date = date;
     }
 
@@ -54,14 +30,8 @@ export default class Dotation {
                 setTimeout(() => {
                     let content = [];
                     for (let i = 1; i <= 20; i++) {
-                        let dotation = new Dotation(
-                            i + '',
-                            new SlipType(i + '', 'Mandragora Mansion', 'MM', '', ''),
-                            1000000,
-                            '',
-                            ''
-                        );
-                        content.push(dotation);
+                        let composant = new Composant(i + 'lLKJDFOJNLZFUZLKZF', 'Composant' + i);
+                        content.push(composant);
                     }
                     resolve(content);
                 }, 1000);
@@ -84,7 +54,7 @@ export default class Dotation {
         new Promise((resolve, except) => {
             try {
                 setTimeout(() => {
-                    resolve({ code: this.slipType.libelle + ' is saved' });
+                    resolve({ code: this.libelle + ' is saved' });
                 }, 1000);
             } catch (e) {
                 except(e);
@@ -105,7 +75,7 @@ export default class Dotation {
         new Promise((resolve, except) => {
             try {
                 setTimeout(() => {
-                    resolve({ code: this.slipType.libelle + ' is updated' });
+                    resolve({ code: this.libelle + ' is updated' });
                 }, 1000);
             } catch (e) {
                 except(e);
@@ -126,7 +96,7 @@ export default class Dotation {
         new Promise((resolve, except) => {
             try {
                 setTimeout(() => {
-                    resolve({ code: this.slipType.libelle + ' is deleted' });
+                    resolve({ code: this.libelle + ' is deleted' });
                 }, 1000);
             } catch (e) {
                 except(e);

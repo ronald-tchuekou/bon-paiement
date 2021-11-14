@@ -19,19 +19,25 @@ export default class SlipType {
      * @type string
      */
     user_id;
+    /**
+     * @type Date
+     */
+    date;
 
     constructor(
         code = undefined,
         libelle = undefined,
         abreviation = undefined,
         code_parent = undefined,
-        user_id = undefined
+        user_id = undefined,
+        date = new Date()
     ) {
         this.code = code;
         this.libelle = libelle;
         this.abreviation = abreviation;
         this.code_parent = code_parent;
         this.user_id = user_id;
+        this.date = date;
     }
 
     /**

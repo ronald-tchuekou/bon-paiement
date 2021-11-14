@@ -58,6 +58,10 @@ export default class DetailMovement {
      * @type string
      */
     user_id;
+    /**
+     * @type Date
+     */
+    date;
 
     constructor(
         code = undefined,
@@ -72,7 +76,8 @@ export default class DetailMovement {
         ref3 = undefined,
         ref4 = undefined,
         code_parent = undefined,
-        user_id = undefined
+        user_id = undefined,
+        date = new Date()
     ) {
         this.code = code;
         this.movement = movement;
@@ -87,6 +92,7 @@ export default class DetailMovement {
         this.ref4 = ref4;
         this.code_parent = code_parent;
         this.user_id = user_id;
+        this.date = date;
     }
 
     /**

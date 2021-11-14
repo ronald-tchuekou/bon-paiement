@@ -1,0 +1,42 @@
+.checkbox__wrapper{
+    display: inline-block;
+    position: relative;
+
+    .checkbox__content{
+        flex: none;
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        color: $default_text_color;
+        transition: .3s;
+        cursor: pointer;
+        &:hover{
+            .state{
+                transform: scale(1.12);
+                &.uncheck-state{
+                    color: $primary_color;
+                }
+            }
+            
+        }
+        .state{
+            height: 20px;
+            width: 20px;
+            transition: .3s;
+            &.check-state{
+                color: $primary_color;
+            }
+            svg{
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .label{
+            padding-left: 15px;
+            font-size: 17px;
+            color:$default_text_color;
+        }
+    }
+}

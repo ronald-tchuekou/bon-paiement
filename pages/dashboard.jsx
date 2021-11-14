@@ -7,6 +7,7 @@ import { HeaderBar } from '../src/components/header_bar';
 import { Modal, ModalContent, ModalHeader } from '../src/base/modal';
 import { Button } from '../src/base/buttons';
 import { RadioButton } from '../src/base/radio_buttons';
+import { Checkbox } from '../src/base/checkbox';
 
 export default function Dashboard() {
     const [lang, setLang] = React.useState('fr');
@@ -44,6 +45,12 @@ export default function Dashboard() {
                         <RadioButton name="sex" label="Homme" checked={sex === 'H'} onClick={() => setSex('H')} />
                         <br />
                         <RadioButton name="sex" label="Femme" checked={sex === 'F'} onClick={() => setSex('F')} />
+                        <br />
+                        <Checkbox
+                            label="Hommage"
+                            checked={sex === 'H'}
+                            onClick={() => setSex((s) => (s === 'H' ? 'F' : 'H'))}
+                        />
                     </div>
                 </div>
             </main>

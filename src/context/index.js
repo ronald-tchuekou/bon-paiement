@@ -3,6 +3,15 @@ import Beneficier from '../models/Beneficier';
 import DetailMovement from '../models/DetailMovement';
 import Dotation from '../models/Dotation';
 import Movement from '../models/Movement';
+import SlipType from '../models/SlipType';
+import Banck from '../models/Banck';
+import Composant from '../models/Composant';
+import Profile from '../models/Profile';
+
+/**
+ * @callback callback
+ * @param {array<object>} list
+ */
 
 export const LangContext = React.createContext({
     lang: 'fr',
@@ -11,7 +20,39 @@ export const LangContext = React.createContext({
 
 /**
  * @type React.Context<{
-        dotations: array<Dotation>;
+        slipTypes: [SlipType];
+        setSlipTypes: callback;
+    }>
+ */
+export const SlipTypesContext = React.createContext({
+    slipTypes: [],
+    setSlipTypes: () => {},
+});
+
+export const CurrentSlipTypeContext = React.createContext({
+    currentSlipType: new SlipType(),
+    setCurrentSlipType: () => {},
+});
+
+/**
+ * @type React.Context<{
+        bancks: [Banck];
+        setBancks: callback;
+    }>
+ */
+export const BancksContext = React.createContext({
+    bancks: [],
+    setBancks: () => {},
+});
+
+export const CurrentBanckContext = React.createContext({
+    currentBanck: new Banck(),
+    setCurrentBanck: () => {},
+});
+
+/**
+ * @type React.Context<{
+        dotations: [Dotation];
         setDotations: callback;
     }>
  */
@@ -27,7 +68,7 @@ export const CurrentDotationContext = React.createContext({
 
 /**
  * @type React.Context<{
-        movements: array<Movement>;
+        movements: [Movement];
         setMovements: callback;
     }>
  */
@@ -43,7 +84,7 @@ export const CurrentMovementContext = React.createContext({
 
 /**
  * @type React.Context<{
-        detailMovements: array<DetailMovement>;
+        detailMovements: [DetailMovement];
         setDetailMovements: callback;
     }>
  */
@@ -55,6 +96,50 @@ export const DetailMovemenstContext = React.createContext({
 export const CurrentDetailMovementContext = React.createContext({
     currentDetailMovement: new DetailMovement(),
     setCurrentDetailMovement: () => {},
+});
+
+/**
+ * @type React.Context<{
+        composants: [Composant];
+        setComposants: callback;
+    }>
+ */
+export const ComposantsContext = React.createContext({
+    composants: [],
+    setComposants: () => {},
+});
+
+/**
+ * @type React.Context<{
+        currentComposant: Composant;
+        setCurrentComposant: callback;
+    }>
+ */
+export const CurrentComposantContext = React.createContext({
+    currentComposant: new Composant(),
+    setCurrentComposant: () => {},
+});
+
+/**
+ * @type React.Context<{
+        profiles: [Profile];
+        setProfiles: callback;
+    }>
+ */
+export const ProfilesContext = React.createContext({
+    profiles: [],
+    setProfiles: () => {},
+});
+
+/**
+ * @type React.Context<{
+        currentProfile: Profile;
+        setCurrentProfile: callback;
+    }>
+ */
+export const CurrentProfileContext = React.createContext({
+    currentProfile: new Profile(),
+    setCurrentProfile: () => {},
 });
 
 export const ShowAddMvtPupopContext = React.createContext({

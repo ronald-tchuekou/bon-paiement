@@ -15,6 +15,74 @@ export const Lang = {
         fr: 'Mouvement',
         en: 'Movement',
     },
+    profile_form: {
+        fr: 'Formulaire de gestion des profiles',
+        en: 'Profiles form manager',
+    },
+    profile_list: {
+        fr: 'Liste de tous les profiles',
+        en: 'List of profiles',
+    },
+    search_profile: {
+        fr: 'Rechercher un profile...',
+        en: 'Search a profile...',
+    },
+    manage_rules_of_profile: {
+        fr: 'Gestion des droits du profile',
+        en: 'Manage rules of the profile',
+    },
+    component_form: {
+        fr: 'Formulaire de gestion des composants',
+        en: 'Components form manager',
+    },
+    component_list: {
+        fr: 'Liste de tous les composants',
+        en: 'List of components',
+    },
+    my_profile: {
+        fr: 'Mon Profile',
+        en: 'My Profile',
+    },
+    profiles: {
+        fr: 'Profiles',
+        en: 'Profiles',
+    },
+    users: {
+        fr: 'Utilisateurs',
+        en: 'Users',
+    },
+    components: {
+        fr: 'Composants',
+        en: 'Components',
+    },
+    bank_form: {
+        fr: 'Formulaire de gestion des banques',
+        en: 'Bank form manager',
+    },
+    set_email: {
+        fr: "Indiquer l'adresse e-mail",
+        en: 'Set e-mail address',
+    },
+    set_phone: {
+        fr: 'Indiquer le téléphone',
+        en: 'Set phone number',
+    },
+    set_fax: {
+        fr: 'indiquer le fax',
+        en: 'Set fax',
+    },
+    banck_list: {
+        fr: 'Liste de tous les banques',
+        en: 'banks list',
+    },
+    search_bank: {
+        fr: 'Rechercher une banque...',
+        en: 'Search a bank...',
+    },
+    search_component: {
+        fr: 'Rechercher un compsant...',
+        en: 'Search a component...',
+    },
     confirm_password: {
         fr: 'Confirmation',
         en: 'Confirmation',
@@ -270,5 +338,33 @@ export const Lang = {
     abreviation: {
         fr: 'Abréviation',
         en: 'Abbreviation',
+    },
+    bon_type_list: {
+        fr: 'Liste des types de bon',
+        en: 'List of voucher typs',
+    },
+    add_on: {
+        fr: 'Ajouté le',
+        en: 'Added on',
+    },
+    bon_type_form: {
+        fr: 'Formulaire de gestion des types de bon',
+        en: 'Form for managing voucher types',
+    },
+    search_bon_type: {
+        fr: 'Rechercher un type de bon...',
+        en: 'Search voucher type...',
+    },
+    libelle: {
+        fr: 'Libelle',
+        en: 'Label',
+    },
+    set_libelle: {
+        fr: 'Indiquer un libelle !',
+        en: 'Set a label!',
+    },
+    set_abreviation: {
+        fr: "Inquer l'abreviation !",
+        en: 'Set an abbreviation!',
     },
 };
