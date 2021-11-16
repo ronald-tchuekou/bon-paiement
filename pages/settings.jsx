@@ -5,7 +5,7 @@ import { Lang } from '../src/lang';
 import { MenuBar } from '../src/components/menu_bar';
 import { HeaderBar } from '../src/components/header_bar';
 import { Tab, TabContent, TabContentItem, TabHeader, TabHeaderItem } from '../src/base/tabs';
-import { MyProfile } from '../src/components/settigns/my_profile';
+import { MyProfile } from '../src/components/settigns/my-profile';
 import { Profiles } from '../src/components/settigns/profiles';
 import { Users } from '../src/components/settigns/users';
 import { Composants } from '../src/components/settigns/composants';

@@ -11,6 +11,18 @@ export const Lang = {
         fr: 'Mot de passe',
         en: 'Password',
     },
+    change_password: {
+        fr: 'Changer de mot de passe',
+        en: 'Change password',
+    },
+    our_rules_about_app_components: {
+        fr: "Mes droits sur les composants de l'applicatoin",
+        en: 'My rights to the application components',
+    },
+    new_pass: {
+        fr: 'Nouveau mot de passe',
+        en: 'New password',
+    },
     movement: {
         fr: 'Mouvement',
         en: 'Movement',
