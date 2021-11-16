@@ -7,6 +7,7 @@ import SlipType from '../models/SlipType';
 import Banck from '../models/Banck';
 import Composant from '../models/Composant';
 import Profile from '../models/Profile';
+import User from '../models/User';
 
 /**
  * @callback callback
@@ -140,6 +141,28 @@ export const ProfilesContext = React.createContext({
 export const CurrentProfileContext = React.createContext({
     currentProfile: new Profile(),
     setCurrentProfile: () => {},
+});
+
+/**
+ * @type React.Context<{
+        users: [User];
+        setUsers: callback;
+    }>
+ */
+export const UsersContext = React.createContext({
+    users: [],
+    setUsers: () => {},
+});
+
+/**
+ * @type React.Context<{
+        currentUser: User;
+        setCurrentUser: callback;
+    }>
+ */
+export const CurrentUserContext = React.createContext({
+    currentUser: new User(),
+    setCurrentUser: () => {},
 });
 
 export const ShowAddMvtPupopContext = React.createContext({

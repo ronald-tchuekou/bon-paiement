@@ -713,3 +713,30 @@ img {
     font-size: 20px;
     color: $primary_color_50;
 }
+
+.switch-default{
+    padding: 4px 10px;
+    margin: 4px;
+    flex: none;
+    color: $defualt_text_color_gray;
+    border-radius: 8px;
+    border: 1px solid $divider_color;
+    background-color: $bg_container;
+    transition: .3s;
+    outline: none;
+    &.select{
+        color: $primary_color;
+        border: 1px solid $primary_color_50;
+        background-color: transparentize($color: $primary_color, $amount: 0.9);
+    }
+    &:hover, &:active, &:focus{
+        cursor: pointer;
+        outline: none;
+        border-color: $defualt_text_color_gray;
+        background-color: transparentize($color: $default_text_color_dark, $amount: 0.9);
+        &.select{
+            border: 1px solid transparentize($color: $primary_color, $amount: 0.4);
+            background-color: transparentize($color: $primary_color, $amount: 0.8);
+        }
+    }
+}

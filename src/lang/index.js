@@ -27,6 +27,26 @@ export const Lang = {
         fr: 'Rechercher un profile...',
         en: 'Search a profile...',
     },
+    search_user: {
+        fr: 'Rechercher un utilisateur...',
+        en: 'Search a list...',
+    },
+    profiles_config: {
+        fr: 'Configuration du profile',
+        en: 'Profile configuration',
+    },
+    sex: {
+        fr: 'Sexe',
+        en: 'Sex',
+    },
+    users_list: {
+        fr: 'Liste des utilisateurs',
+        en: 'Users list',
+    },
+    users_form: {
+        fr: 'Formulaire de gestion des utilisateurs',
+        en: 'Users form manager',
+    },
     manage_rules_of_profile: {
         fr: 'Gestion des droits du profile',
         en: 'Manage rules of the profile',
