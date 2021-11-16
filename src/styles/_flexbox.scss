@@ -9,6 +9,12 @@ $content-types: 'center', 'end', 'flex-end', 'flex-start', 'left', 'right', 'saf
             justify-content: #{$type};
         }
     }
+    &.#{$prefix}flex-flow-wrap{
+        flex-flow: wrap;
+    }
+    &.#{$prefix}flex-flow-nowrap{
+        flex-flow: nowrap;
+    }
     &.#{$prefix}d-flex-r {
         flex-direction: row;
     }

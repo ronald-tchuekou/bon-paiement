@@ -11,6 +11,18 @@ export const Lang = {
         fr: 'Mot de passe',
         en: 'Password',
     },
+    change_password: {
+        fr: 'Changer de mot de passe',
+        en: 'Change password',
+    },
+    our_rules_about_app_components: {
+        fr: "Mes droits sur les composants de l'applicatoin",
+        en: 'My rights to the application components',
+    },
+    new_pass: {
+        fr: 'Nouveau mot de passe',
+        en: 'New password',
+    },
     movement: {
         fr: 'Mouvement',
         en: 'Movement',
@@ -26,6 +38,26 @@ export const Lang = {
     search_profile: {
         fr: 'Rechercher un profile...',
         en: 'Search a profile...',
+    },
+    search_user: {
+        fr: 'Rechercher un utilisateur...',
+        en: 'Search a list...',
+    },
+    profiles_config: {
+        fr: 'Configuration du profile',
+        en: 'Profile configuration',
+    },
+    sex: {
+        fr: 'Sexe',
+        en: 'Sex',
+    },
+    users_list: {
+        fr: 'Liste des utilisateurs',
+        en: 'Users list',
+    },
+    users_form: {
+        fr: 'Formulaire de gestion des utilisateurs',
+        en: 'Users form manager',
     },
     manage_rules_of_profile: {
         fr: 'Gestion des droits du profile',
