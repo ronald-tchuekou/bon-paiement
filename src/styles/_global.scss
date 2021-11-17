@@ -52,10 +52,10 @@
     color: $white_color_50 !important;
 }
 .h-100 {
-    height: 100%;
+    height: 100% !important;
 }
 .w-100 {
-    width: 100%;
+    width: 100% !important;
 }
 
 body {
@@ -81,6 +81,100 @@ a {
     height: 100vh;
     width: calc(100vw - 100px);
     background: transparent;
+}
+
+.bool{
+    width: 10px;
+    height: 10px;
+    background-color: $primary_color;
+    border-radius: 50%;
+    flex: none;
+    &.bool-danger{
+        background-color: $danger_color;
+    }
+}
+
+.badge{
+    font-size: 13px;
+    color: $default_text_color;
+    background-color: $divider_color;
+    border-radius: 20px;
+    padding: 4px 9px;
+    font-weight: 500;
+    &.badge-primary{
+        color: $primary_color;
+        background-color: $primary_color_25;
+    }
+    &.badge-warning{
+        color: $warning_color;
+        background-color: $warning_color_25;
+    }
+    &.badge-danger{
+        color: $danger_color;
+        background-color: $danger_color_25;
+    }
+    &.badge-success{
+        color: $success_color;
+        background-color: $success_color_25;
+    }
+}
+
+.dasboard-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    .stats-content{
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        overflow-y: auto;
+    }
+    .last-activities{
+        flex: none;
+        width: 350px;
+        height: 100%;
+        background-color: $white_color;
+    }
+    .users_container{
+        background-color: $white_color;
+        border-radius: 10px;
+        min-height: 200px;
+        padding: 10px;
+    }
+    .bon-type_container{
+        background-color: $white_color;
+        height: 250px;
+        max-height: 250px;
+        min-height: 250px;
+        border-radius: 10px;
+        padding: 5px;
+        canvas{
+            height: 100% !important;
+        }
+        .conten{
+            height: 100%;
+            min-height: 100%;
+            max-height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        .bon-type-item{
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: $primary_color_25;
+        }
+    }
+    .bank-item{
+        padding: 10px;
+        border-radius: 10px;
+        transition: .3s;
+        &:hover{
+            cursor: default;
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+    }
 }
 
 .container {
@@ -487,43 +581,46 @@ img {
         padding-top: 10px;
         overflow-y: auto;
         overflow-x: hidden;
-        .empty-content {
-            padding: 20px;
-            text-align: center;
-            svg {
-                width: 70%;
-            }
-        }
-        .notification-item {
-            margin: 10px;
-            padding: 10px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            transition: 0.3s;
-            border-radius: 10px;
-            &:hover {
-                cursor: default;
-                background: rgba(0, 0, 0, 0.05);
-            }
-            .profile {
-                background: $white_color;
-                flex: none;
-                height: 60px;
-                width: 60px;
-                border-radius: 50%;
-                overflow: hidden;
-                margin-right: 10px;
-            }
-            .content {
-                .text-title {
-                    white-space: nowrap;
-                    overflow: hidden;
-                    max-width: 280px;
-                    text-overflow: ellipsis;
-                }
-            }
+        
+    }
+}
+
+.empty-content {
+    padding: 20px;
+    text-align: center;
+    svg {
+        width: 70%;
+    }
+}
+
+.notification-item {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: 0.3s;
+    border-radius: 10px;
+    &:hover {
+        cursor: default;
+        background: rgba(0, 0, 0, 0.05);
+    }
+    .profile {
+        background: $white_color;
+        flex: none;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 10px;
+    }
+    .content {
+        .text-title {
+            white-space: nowrap;
+            overflow: hidden;
+            max-width: 280px;
+            text-overflow: ellipsis;
         }
     }
 }

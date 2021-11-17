@@ -399,4 +399,100 @@ export const Lang = {
         fr: "Inquer l'abreviation !",
         en: 'Set an abbreviation!',
     },
+    january: {
+        fr: 'Janvier',
+        en: 'January',
+    },
+    febuary: {
+        fr: 'Février',
+        en: 'February',
+    },
+    march: {
+        fr: 'Mars',
+        en: 'March',
+    },
+    april: {
+        fr: 'Avril',
+        en: 'April',
+    },
+    may: {
+        fr: 'Mai',
+        en: 'May',
+    },
+    june: {
+        fr: 'Juin',
+        en: 'June',
+    },
+    july: {
+        fr: 'Juillet',
+        en: 'July',
+    },
+    august: {
+        fr: 'Aout',
+        en: 'August',
+    },
+    semptember: {
+        fr: 'Semptembre',
+        en: 'Semptember',
+    },
+    october: {
+        fr: 'Octobre',
+        en: 'October',
+    },
+    november: {
+        fr: 'Novembre',
+        en: 'November',
+    },
+    december: {
+        fr: 'Decembre',
+        en: 'December',
+    },
+    monday: {
+        fr: 'Lundi',
+        en: 'Monday',
+    },
+    tuesday: {
+        fr: 'Mardi',
+        en: 'Tuesday',
+    },
+    wednesday: {
+        fr: 'Mercredi',
+        en: 'Wednesday',
+    },
+    thursday: {
+        fr: 'Jeudi',
+        en: 'Thursday',
+    },
+    friday: {
+        fr: 'Vendredi',
+        en: 'Friday',
+    },
+    saturday: {
+        fr: 'Samedi',
+        en: 'Saturday',
+    },
+    sunday: {
+        fr: 'Dimanche',
+        en: 'Sunday',
+    },
+    last_activities: {
+        fr: 'Les dernières activités',
+        en: 'Last activities',
+    },
+    mvt_rapport: {
+        fr: 'Rapport sur les mouvements de dotations',
+        en: 'Statistics about vouchers movements',
+    },
+    status: {
+        fr: 'Statut',
+        en: 'Status',
+    },
+    on_line: {
+        fr: 'En ligne',
+        en: 'On line',
+    },
+    last_connection: {
+        fr: 'Dernière connexion',
+        en: 'Last connection',
+    },
 };

@@ -4,16 +4,14 @@ import { LangContext } from '../src/context';
 import { Lang } from '../src/lang';
 import { MenuBar } from '../src/components/menu_bar';
 import { HeaderBar } from '../src/components/header_bar';
-import { Modal, ModalContent, ModalHeader } from '../src/base/modal';
-import { Button } from '../src/base/buttons';
-import { RadioButton } from '../src/base/radio_buttons';
-import { Checkbox } from '../src/base/checkbox';
+import { DashboardDotations } from '../src/components/dashboard/dotations';
+import { DashboardRapport } from '../src/components/dashboard/mvt-raport';
+import { DashboardLastActivities } from '../src/components/dashboard/last-activities';
+import { DashboardUsers } from '../src/components/dashboard/users';
+import { DashboardBanks } from '../src/components/dashboard/bank';
 
 export default function Dashboard() {
     const [lang, setLang] = React.useState('fr');
-    const [sex, setSex] = React.useState('F');
-
-    const modal_ref = React.useRef(null);
 
     const lang_context = React.useMemo(() => {
         return {
@@ -21,13 +19,6 @@ export default function Dashboard() {
             setLang: setLang,
         };
     }, [lang, setLang]);
-
-    function showLoader() {
-        modal_ref.current.showLoader();
-        setTimeout(() => {
-            modal_ref.current.dismissLoader();
-        }, 2000);
-    }
 
     return (
         <LangContext.Provider value={lang_context}>
@@ -41,16 +32,32 @@ export default function Dashboard() {
                 <MenuBar current={'dashboard'} />
                 <div className="main-content">
                     <HeaderBar current={Lang.dashboard[lang]} />
-                    <div className="container">
-                        <RadioButton name="sex" label="Homme" checked={sex === 'H'} onClick={() => setSex('H')} />
-                        <br />
-                        <RadioButton name="sex" label="Femme" checked={sex === 'F'} onClick={() => setSex('F')} />
-                        <br />
-                        <Checkbox
-                            label="Hommage"
-                            checked={sex === 'H'}
-                            onClick={() => setSex((s) => (s === 'H' ? 'F' : 'H'))}
-                        />
+                    <div className="container p-0 m-0">
+                        <div className="dasboard-content">
+                            <div className="stats-content invisible-scroll">
+                                <div className="row m-0 p-0">
+                                    <div className="col-5 py-0 px-5 m-0">
+                                        <DashboardDotations />
+                                    </div>
+
+                                    <div className="col-7 py-0 px-5 m-0">
+                                        <DashboardRapport />
+                                    </div>
+                                </div>
+
+                                <div className="row m-0 p-0">
+                                    <div className="col-7 py-0 px-5 m-0">
+                                        <DashboardUsers />
+                                    </div>
+
+                                    <div className="col-5 py-0 px-5 m-0">
+                                        <DashboardBanks />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <DashboardLastActivities />
+                        </div>
                     </div>
                 </div>
             </main>

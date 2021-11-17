@@ -13,3 +13,16 @@ html,
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+@for $var from 0 to 501 {
+    .calc-h-#{$var}{
+        height: calc(100vh - #{$var}px) !important;
+        min-height: calc(100vh - #{$var}px) !important;
+        max-height: calc(100vh - #{$var}px) !important;
+    }
+    .calc-w-#{$var}{
+        width: calc(100vw - #{$var}px) !important;
+        min-width: calc(100vw - #{$var}px) !important;
+        max-width: calc(100vw - #{$var}px) !important;
+    }
+}
