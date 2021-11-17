@@ -38,6 +38,10 @@ export default class User {
      * @type Date
      */
     date;
+    /**
+     * @type string
+     */
+    status;
 
     constructor(
         code = undefined,
@@ -48,6 +52,7 @@ export default class User {
         fax = undefined,
         email = undefined,
         profiles = [],
+        status = undefined,
         date = new Date()
     ) {
         this.code = code;
@@ -58,6 +63,7 @@ export default class User {
         this.fax = fax;
         this.email = email;
         this.profiles = profiles;
+        this.status = status;
         this.date = date;
     }
 
@@ -81,7 +87,8 @@ export default class User {
                             Math.floor(Math.random() * 100000),
                             Math.floor(Math.random() * 100000),
                             `email${i}@gmail.com`,
-                            [new Profile(i + 'lLKJDFOJNLZFUZLKZF', 'Profile' + i)]
+                            [new Profile(i + 'lLKJDFOJNLZFUZLKZF', 'Profile' + i)],
+                            i % 2 === 0 ? 'En ligne' : i % 3 === 0 ? 'Hors ligne' : 'Supprimé'
                         );
                         content.push(user);
                     }

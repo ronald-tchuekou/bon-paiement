@@ -30,3 +30,18 @@
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: $scroll_color;
 }
+
+.invisible-scroll{
+    &::-webkit-scrollbar-track {
+        visibility: hidden;
+    }
+
+    &::-webkit-scrollbar {
+        visibility: hidden;
+        width: 0;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        visibility: hidden;
+    }
+}

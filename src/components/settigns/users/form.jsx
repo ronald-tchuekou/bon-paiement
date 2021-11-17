@@ -181,7 +181,7 @@ export const UserForm = React.forwardRef((props, ref) => {
                                         tabIndex="0"
                                         onClick={() => selectThis(item)}
                                         onKeyPress={(e) => {
-                                            if (e.key === 'Space' || e.key === 'Enter') {
+                                            if (e.code === 'Space' || e.key === 'Enter') {
                                                 selectThis(item);
                                             }
                                         }}

@@ -1,3 +1,5 @@
+import { Lang } from '../lang';
+
 /**
  * Fichier qui permet gérer les composants js de l'application.
  * @author Ronald Tchuekou
@@ -122,4 +124,73 @@ export const OnOutsideClickListener = (elt, callback) => {
     return {
         remove: () => window.removeEventListener('mouseup', done),
     };
+};
+
+/**
+ * Fonction qui retoune la date courante en string.
+ * @param {String} lang
+ * @returns {String}
+ */
+export const GetDateToString = (lang) => {
+    let date = new Date();
+    return `${getStringDay(date, lang)} ${date.getDate()}, ${getStringMonth(date, lang)} ${date.getFullYear()}`;
+};
+
+/**
+ * @param {Date} date
+ * @param {String} lang
+ * @returns {String}
+ */
+export const getStringDay = (date, lang) => {
+    switch (date.getDay()) {
+        case 1:
+            return Lang.monday[lang];
+        case 2:
+            return Lang.tuesday[lang];
+        case 3:
+            return Lang.wednesday[lang];
+        case 4:
+            return Lang.thursday[lang];
+        case 5:
+            return Lang.friday[lang];
+        case 6:
+            return Lang.saturday[lang];
+        case 7:
+            return Lang.sunday[lang];
+    }
+};
+
+/**
+ * @param {Date} date
+ * @param {String} lang
+ * @returns {String}
+ */
+export const getStringMonth = (date, lang) => {
+    let month = date.getMonth() + 1;
+    switch (month) {
+        case 1:
+            return Lang.january[lang];
+        case 2:
+            return Lang.febuary[lang];
+        case 3:
+            return Lang.march[lang];
+        case 4:
+            return Lang.april[lang];
+        case 5:
+            return Lang.may[lang];
+        case 6:
+            return Lang.june[lang];
+        case 7:
+            return Lang.july[lang];
+        case 8:
+            return Lang.august[lang];
+        case 9:
+            return Lang.semptember[lang];
+        case 10:
+            return Lang.october[lang];
+        case 11:
+            return Lang.november[lang];
+        case 12:
+            return Lang.december[lang];
+    }
 };
