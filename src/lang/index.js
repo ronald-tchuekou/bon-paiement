@@ -7,6 +7,14 @@ export const Lang = {
         fr: "Nom d'utilisateur",
         en: 'Username',
     },
+    finished: {
+        fr: 'Finaliser',
+        en: 'Finish',
+    },
+    justification: {
+        fr: 'Justification',
+        en: 'Justification',
+    },
     password: {
         fr: 'Mot de passe',
         en: 'Password',
