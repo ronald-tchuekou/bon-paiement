@@ -46,6 +46,9 @@ export class Modal extends React.Component {
      */
     show() {
         this.setState({ show: true });
+        setTimeout(() => {
+            this.content_ref.current.style.transform = 'none';
+        }, 300);
     }
 
     /**
@@ -53,6 +56,7 @@ export class Modal extends React.Component {
      */
     dismiss() {
         this.setState({ show: false, change: true });
+        this.content_ref.current.style.transform = '';
     }
 
     render() {
