@@ -1,4 +1,4 @@
-class FilesChooser extends HTMLInputElement {
+class FilesChooser extends window.HTMLInputElement {
     /**
      * @type FileList
      */
@@ -59,7 +59,7 @@ class FilesChooser extends HTMLInputElement {
         // Label of the custom element.
         this.label = this.createElementWithClassName('div', 'image-chooser__label');
         this.label.innerHTML = `<div class="title">${attr.label}</div>
-            <div class="descriptin">${attr.description}</div>`;
+            <div class="description">${attr.description}</div>`;
         // Add helper text to the container;
         container.appendChild(this.label);
 

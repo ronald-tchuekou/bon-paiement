@@ -108,11 +108,6 @@ export const AddMVTPopup = React.forwardRef(
 
                         <div className="row p-10">
                             <FilesChooser />
-                            {/* <div className="w-100 mt-10 wrong-image-picher" style={{ height: 70 }}>
-                                <div className="text-primary">
-                                    <i className="fi fi-rr-plus"></i> &nbsp; Cliquer ici / Glisser votre fichier
-                                </div>
-                            </div> */}
                         </div>
 
                         <div className="row">
