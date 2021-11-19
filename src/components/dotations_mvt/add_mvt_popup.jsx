@@ -4,6 +4,7 @@ import { Button } from '../../base/buttons';
 import { Lang } from '../../lang';
 import { LangContext } from '../../context';
 import { TextInput } from '../../base/input_text';
+import { FilesChooser } from '../../base/file_chooser';
 
 export const AddMVTPopup = React.forwardRef(
     (props, ref) => {
@@ -106,11 +107,12 @@ export const AddMVTPopup = React.forwardRef(
                         </div>
 
                         <div className="row p-10">
-                            <div className="w-100 mt-10 wrong-image-picher" style={{ height: 70 }}>
+                            <FilesChooser />
+                            {/* <div className="w-100 mt-10 wrong-image-picher" style={{ height: 70 }}>
                                 <div className="text-primary">
                                     <i className="fi fi-rr-plus"></i> &nbsp; Cliquer ici / Glisser votre fichier
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="row">

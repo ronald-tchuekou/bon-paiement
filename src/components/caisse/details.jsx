@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '../../base/buttons';
+import { FilesChooser } from '../../base/file_chooser';
 import { TextInput } from '../../base/input_text';
 import { RadioButton } from '../../base/radio_buttons';
 import { SectionList, SectionListContent, SectionListHeader } from '../../base/section-list';
@@ -324,11 +325,12 @@ export const CaisseBeneficiersDetails = (props) => {
                 )}
 
                 <div className="row p-10">
-                    <div className="w-100 mt-10 wrong-image-picher" style={{ height: 70 }}>
+                    <FilesChooser />
+                    {/* <div className="w-100 mt-10 wrong-image-picher" style={{ height: 70 }}>
                         <div className="text-primary">
                             <i className="fi fi-rr-plus"></i> &nbsp; Cliquer ici / Glisser votre fichier
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="m-0 ">
